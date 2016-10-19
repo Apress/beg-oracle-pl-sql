@@ -1,0 +1,4 @@
+CREATE INDEX author_publications_k1
+on           author_publications (
+title );
+

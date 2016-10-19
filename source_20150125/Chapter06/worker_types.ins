@@ -1,0 +1,10 @@
+rem worker_typet.ins
+rem copyright by Donald J. Bales on 2014-10-20 
+rem
+
+insert into WORKER_TYPES values ( worker_type( 'C', 'Contractor' ) );
+insert into WORKER_TYPES values ( worker_type( 'E', 'Employee' ) );
+insert into WORKER_TYPES values ( worker_type( 'U', 'Unknown' ) );
+commit;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORKER_TYPES');

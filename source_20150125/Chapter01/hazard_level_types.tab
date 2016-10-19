@@ -1,0 +1,28 @@
+rem hazard_level_types.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a hazard level code table
+
+--drop   table HAZARD_LEVEL_TYPES;
+create table HAZARD_LEVEL_TYPES (
+id                             number(38)                     not null,
+magnitude                      number(38)                     not null,
+code                           varchar2(30)                   not null,
+description                    varchar2(80)                   not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+--drop   sequence HAZARD_LEVEL_TYPES_ID;
+create sequence HAZARD_LEVEL_TYPES_ID
+start with 1;
+
+alter  table HAZARD_LEVEL_TYPES add
+constraint   HAZARD_LEVEL_TYPES_PK
+primary key ( id )
+using index;
+
+alter  table HAZARD_LEVEL_TYPES add
+constraint   HAZARD_LEVEL_TYPES_UK
+unique ( code )
+using index;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'HAZARD_LEVEL_TYPES');

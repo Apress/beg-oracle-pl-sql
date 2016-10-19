@@ -1,0 +1,14 @@
+rem workplace_types.ins
+rem by Donald J. Bales on 2014-10-20 
+rem Add workplace type code values
+
+insert into WORKPLACE_TYPES ( id, logical_indicator, physical_indicator, code, description ) values ( WORKPLACE_TYPES_ID.nextval, 'Y', 'N', 'B', 'Business Unit' );
+insert into WORKPLACE_TYPES ( id, logical_indicator, physical_indicator, code, description ) values ( WORKPLACE_TYPES_ID.nextval, 'Y', 'N', 'C', 'Company' );
+insert into WORKPLACE_TYPES ( id, logical_indicator, physical_indicator, code, description ) values ( WORKPLACE_TYPES_ID.nextval, 'Y', 'N', 'D', 'Department' );
+insert into WORKPLACE_TYPES ( id, logical_indicator, physical_indicator, code, description ) values ( WORKPLACE_TYPES_ID.nextval, 'N', 'Y', 'L', 'Line' );
+insert into WORKPLACE_TYPES ( id, logical_indicator, physical_indicator, code, description ) values ( WORKPLACE_TYPES_ID.nextval, 'N', 'Y', 'M', 'Machine' );
+insert into WORKPLACE_TYPES ( id, logical_indicator, physical_indicator, code, description ) values ( WORKPLACE_TYPES_ID.nextval, 'N', 'Y', 'S', 'Site' );
+insert into WORKPLACE_TYPES ( id, logical_indicator, physical_indicator, code, description ) values ( WORKPLACE_TYPES_ID.nextval, 'Y', 'Y', 'U', 'Unknown' );
+commit;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORKPLACE_TYPES');

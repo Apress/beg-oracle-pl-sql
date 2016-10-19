@@ -1,0 +1,3300 @@
+SQL> 
+SQL> @ddl_.pks
+SP2-0310: unable to open file "ddl_.pks"
+SQL> @ddl_.pkb
+SP2-0310: unable to open file "ddl_.pkb"
+SQL> @pl.prc
+SQL> create or replace PROCEDURE pl(
+  2  aiv_text			    in	   varchar2 ) is
+  3  /*
+  4  pl.prc
+  5  by Donald J. Bales on 2014-10-20
+  6  A wrapper procedure for SYS.DBMS_OUTPUT.put_line()
+  7  for the lazy typist.
+  8  */
+  9  
+ 10  begin
+ 11    SYS.DBMS_OUTPUT.put_line(aiv_text);
+ 12  end pl;
+ 13  /
+
+Procedure created.
+
+SQL> @pe.sql pl
+SQL> show errors
+No errors.
+SQL> 
+SQL> @a_thru_z.tab
+SQL> rem a_thru_z.tab
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem The letters A through Z
+SQL> 
+SQL> exec ddl_.dtab('A_THRU_Z');
+Table dropped.
+
+PL/SQL procedure successfully completed.
+
+SQL> create table    A_THRU_Z (
+  2  letter			    varchar2(1));
+
+Table created.
+
+SQL> 
+SQL> alter  table    A_THRU_Z add
+  2  constraint      A_THRU_Z_PK
+  3  primary key (
+  4  letter )
+  5  using index;
+
+Table altered.
+
+SQL> 
+SQL> @a_thru_z.ins
+SQL> rem a_thru_z.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem The letters A through Z
+SQL> 
+SQL> declare
+  2  
+  3  begin
+  4    for i in ascii('A')..ascii('Z') loop
+  5  	 insert into A_THRU_Z (
+  6  		letter )
+  7  	 values (
+  8  		chr(i));
+  9    end loop;
+ 10    commit;
+ 11  end;
+ 12  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> execute SYS.DBMS_STATS.gather_table_stats(USER, 'A_THRU_Z');
+
+PL/SQL procedure successfully completed.
+
+SQL> @top_100_first_names.tab
+SQL> rem top_100_first_names.tab
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Top 100 first names from www.namestatistics.com
+SQL> 
+SQL> exec ddl_.dtab('TOP_100_FIRST_NAMES');
+Table dropped.
+
+PL/SQL procedure successfully completed.
+
+SQL> create table    TOP_100_FIRST_NAMES (
+  2  first_name 		    varchar2(30)		   not null,
+  3  gender_code		    varchar2(1) 		   not null);
+
+Table created.
+
+SQL> 
+SQL> alter  table    TOP_100_FIRST_NAMES add
+  2  constraint      TOP_100_FIRST_NAMES_PK
+  3  primary key (
+  4  first_name,
+  5  gender_code )
+  6  using index;
+
+Table altered.
+
+SQL> 
+SQL> @top_100_first_names.ins
+SQL> rem top_100_first_names.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Top 100 first names from www.namestatistics.com
+SQL> 
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ALICE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('AMANDA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('AMY', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANDREW', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANGELA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANN', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANNA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANTHONY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BARBARA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BETTY', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BRENDA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BRIAN', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CARL', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CAROL', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CAROLYN', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CATHERINE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHARLES', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHRISTINE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHRISTOPHER', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CYNTHIA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DANIEL', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DAVID', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DEBORAH', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DEBRA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DENNIS', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DIANE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DONALD', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DONNA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DOROTHY', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DOUGLAS', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('EDWARD', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ELIZABETH', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ERIC', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('FRANCES', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('FRANK', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GARY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GEORGE', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GREGORY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HAROLD', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HEATHER', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HELEN', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HENRY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JAMES', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JANET', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JASON', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JEFFREY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JENNIFER', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JERRY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JESSICA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOHN', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSE', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSEPH', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSHUA', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOYCE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JULIE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KAREN', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KATHLEEN', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KENNETH', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KEVIN', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KIMBERLY', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LARRY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LAURA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LINDA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LISA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARGARET', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARIA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARIE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARK', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARTHA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MATTHEW', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MELISSA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MICHAEL', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MICHELLE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('NANCY', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PAMELA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PATRICIA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PATRICK', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PAUL', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PETER', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RAYMOND', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('REBECCA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RICHARD', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ROBERT', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RONALD', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RUTH', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SANDRA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SARAH', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SCOTT', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SHARON', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SHIRLEY', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEPHANIE', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEPHEN', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEVEN', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SUSAN', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('THOMAS', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('TIMOTHY', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('VIRGINIA', 'F');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('WALTER', 'M');
+
+1 row created.
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('WILLIAM', 'M');
+
+1 row created.
+
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> execute SYS.DBMS_STATS.gather_table_stats(USER, 'TOP_100_FIRST_NAMES');
+
+PL/SQL procedure successfully completed.
+
+SQL> @top_100_last_names.tab
+SQL> rem top_100_last_names.tab
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Top 100 last names from www.namestatistics.com
+SQL> 
+SQL> exec ddl_.dtab('TOP_100_LAST_NAMES');
+Table dropped.
+
+PL/SQL procedure successfully completed.
+
+SQL> create table    TOP_100_LAST_NAMES (
+  2  last_name			    varchar2(30)		   not null);
+
+Table created.
+
+SQL> 
+SQL> alter  table    TOP_100_LAST_NAMES add
+  2  constraint      TOP_100_LAST_NAMES_PK
+  3  primary key (
+  4  last_name)
+  5  using index;
+
+Table altered.
+
+SQL> 
+SQL> @top_100_last_names.ins
+SQL> rem top_100_last_name.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Top 100 last names from www.namestatistics.com
+SQL> 
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ADAMS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ALEXANDER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ALLEN');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ANDERSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BAILEY');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BAKER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BARNES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BELL');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BENNETT');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BROOKS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BROWN');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BRYANT');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BUTLER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('CAMPBELL');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('CARTER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('CLARK');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COLEMAN');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COLLINS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COOK');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COOPER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COX');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('DAVIS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('DIAZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('EDWARDS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('EVANS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('FLORES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('FOSTER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GARCIA');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GONZALES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GONZALEZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GRAY');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GREEN');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GRIFFIN');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HALL');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HARRIS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HAYES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HENDERSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HERNANDEZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HILL');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HOWARD');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HUGHES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JACKSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JAMES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JENKINS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JOHNSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JONES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('KELLY');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('KING');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LEE');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LEWIS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LONG');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LOPEZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MARTIN');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MARTINEZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MILLER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MITCHELL');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MOORE');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MORGAN');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MORRIS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MURPHY');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('NELSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PARKER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PATTERSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PEREZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PERRY');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PETERSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PHILLIPS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('POWELL');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PRICE');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RAMIREZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('REED');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RICHARDSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RIVERA');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROBERTS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROBINSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RODRIGUEZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROGERS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROSS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RUSSELL');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SANCHEZ');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SANDERS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SCOTT');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SIMMONS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SMITH');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('STEWART');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('TAYLOR');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('THOMAS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('THOMPSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('TORRES');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('TURNER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WALKER');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WARD');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WASHINGTON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WATSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WHITE');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WILLIAMS');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WILSON');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WOOD');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WRIGHT');
+
+1 row created.
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('YOUNG');
+
+1 row created.
+
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> execute SYS.DBMS_STATS.gather_table_stats(USER, 'TOP_100_LAST_NAMES');
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> @top_100_first_names.ins
+SQL> rem top_100_first_names.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Top 100 first names from www.namestatistics.com
+SQL> 
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ALICE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ALICE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('AMANDA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('AMANDA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('AMY', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('AMY', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANDREW', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANDREW', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANGELA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANGELA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANN', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANN', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANNA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANNA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANTHONY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ANTHONY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BARBARA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BARBARA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BETTY', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BETTY', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BRENDA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BRENDA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BRIAN', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('BRIAN', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CARL', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CARL', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CAROL', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CAROL', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CAROLYN', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CAROLYN', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CATHERINE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CATHERINE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHARLES', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHARLES', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHRISTINE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHRISTINE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHRISTOPHER', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CHRISTOPHER', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CYNTHIA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('CYNTHIA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DANIEL', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DANIEL', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DAVID', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DAVID', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DEBORAH', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DEBORAH', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DEBRA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DEBRA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DENNIS', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DENNIS', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DIANE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DIANE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DONALD', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DONALD', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DONNA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DONNA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DOROTHY', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DOROTHY', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DOUGLAS', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('DOUGLAS', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('EDWARD', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('EDWARD', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ELIZABETH', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ELIZABETH', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ERIC', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ERIC', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('FRANCES', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('FRANCES', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('FRANK', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('FRANK', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GARY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GARY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GEORGE', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GEORGE', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GREGORY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('GREGORY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HAROLD', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HAROLD', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HEATHER', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HEATHER', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HELEN', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HELEN', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HENRY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('HENRY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JAMES', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JAMES', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JANET', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JANET', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JASON', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JASON', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JEFFREY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JEFFREY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JENNIFER', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JENNIFER', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JERRY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JERRY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JESSICA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JESSICA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOHN', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOHN', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSE', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSE', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSEPH', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSEPH', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSHUA', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOSHUA', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOYCE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JOYCE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JULIE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('JULIE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KAREN', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KAREN', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KATHLEEN', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KATHLEEN', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KENNETH', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KENNETH', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KEVIN', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KEVIN', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KIMBERLY', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('KIMBERLY', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LARRY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LARRY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LAURA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LAURA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LINDA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LINDA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LISA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('LISA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARGARET', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARGARET', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARIA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARIA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARIE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARIE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARK', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARK', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARTHA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARTHA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MARY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MATTHEW', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MATTHEW', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MELISSA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MELISSA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MICHAEL', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MICHAEL', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MICHELLE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('MICHELLE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('NANCY', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('NANCY', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PAMELA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PAMELA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PATRICIA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PATRICIA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PATRICK', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PATRICK', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PAUL', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PAUL', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PETER', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('PETER', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RAYMOND', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RAYMOND', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('REBECCA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('REBECCA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RICHARD', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RICHARD', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ROBERT', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('ROBERT', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RONALD', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RONALD', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RUTH', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('RUTH', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SANDRA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SANDRA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SARAH', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SARAH', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SCOTT', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SCOTT', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SHARON', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SHARON', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SHIRLEY', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SHIRLEY', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEPHANIE', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEPHANIE', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEPHEN', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEPHEN', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEVEN', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('STEVEN', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SUSAN', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('SUSAN', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('THOMAS', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('THOMAS', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('TIMOTHY', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('TIMOTHY', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('VIRGINIA', 'F');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('VIRGINIA', 'F')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('WALTER', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('WALTER', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('WILLIAM', 'M');
+insert into TOP_100_FIRST_NAMES (first_name, gender_code) values ('WILLIAM', 'M')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_FIRST_NAMES_PK) violated
+
+
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> execute SYS.DBMS_STATS.gather_table_stats(USER, 'TOP_100_FIRST_NAMES');
+
+PL/SQL procedure successfully completed.
+
+SQL> @top_100_last_names.ins
+SQL> rem top_100_last_name.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Top 100 last names from www.namestatistics.com
+SQL> 
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ADAMS');
+insert into TOP_100_LAST_NAMES (last_name) values ('ADAMS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ALEXANDER');
+insert into TOP_100_LAST_NAMES (last_name) values ('ALEXANDER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ALLEN');
+insert into TOP_100_LAST_NAMES (last_name) values ('ALLEN')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ANDERSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('ANDERSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BAILEY');
+insert into TOP_100_LAST_NAMES (last_name) values ('BAILEY')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BAKER');
+insert into TOP_100_LAST_NAMES (last_name) values ('BAKER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BARNES');
+insert into TOP_100_LAST_NAMES (last_name) values ('BARNES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BELL');
+insert into TOP_100_LAST_NAMES (last_name) values ('BELL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BENNETT');
+insert into TOP_100_LAST_NAMES (last_name) values ('BENNETT')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BROOKS');
+insert into TOP_100_LAST_NAMES (last_name) values ('BROOKS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BROWN');
+insert into TOP_100_LAST_NAMES (last_name) values ('BROWN')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BRYANT');
+insert into TOP_100_LAST_NAMES (last_name) values ('BRYANT')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('BUTLER');
+insert into TOP_100_LAST_NAMES (last_name) values ('BUTLER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('CAMPBELL');
+insert into TOP_100_LAST_NAMES (last_name) values ('CAMPBELL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('CARTER');
+insert into TOP_100_LAST_NAMES (last_name) values ('CARTER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('CLARK');
+insert into TOP_100_LAST_NAMES (last_name) values ('CLARK')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COLEMAN');
+insert into TOP_100_LAST_NAMES (last_name) values ('COLEMAN')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COLLINS');
+insert into TOP_100_LAST_NAMES (last_name) values ('COLLINS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COOK');
+insert into TOP_100_LAST_NAMES (last_name) values ('COOK')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COOPER');
+insert into TOP_100_LAST_NAMES (last_name) values ('COOPER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('COX');
+insert into TOP_100_LAST_NAMES (last_name) values ('COX')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('DAVIS');
+insert into TOP_100_LAST_NAMES (last_name) values ('DAVIS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('DIAZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('DIAZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('EDWARDS');
+insert into TOP_100_LAST_NAMES (last_name) values ('EDWARDS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('EVANS');
+insert into TOP_100_LAST_NAMES (last_name) values ('EVANS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('FLORES');
+insert into TOP_100_LAST_NAMES (last_name) values ('FLORES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('FOSTER');
+insert into TOP_100_LAST_NAMES (last_name) values ('FOSTER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GARCIA');
+insert into TOP_100_LAST_NAMES (last_name) values ('GARCIA')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GONZALES');
+insert into TOP_100_LAST_NAMES (last_name) values ('GONZALES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GONZALEZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('GONZALEZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GRAY');
+insert into TOP_100_LAST_NAMES (last_name) values ('GRAY')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GREEN');
+insert into TOP_100_LAST_NAMES (last_name) values ('GREEN')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('GRIFFIN');
+insert into TOP_100_LAST_NAMES (last_name) values ('GRIFFIN')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HALL');
+insert into TOP_100_LAST_NAMES (last_name) values ('HALL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HARRIS');
+insert into TOP_100_LAST_NAMES (last_name) values ('HARRIS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HAYES');
+insert into TOP_100_LAST_NAMES (last_name) values ('HAYES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HENDERSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('HENDERSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HERNANDEZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('HERNANDEZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HILL');
+insert into TOP_100_LAST_NAMES (last_name) values ('HILL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HOWARD');
+insert into TOP_100_LAST_NAMES (last_name) values ('HOWARD')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('HUGHES');
+insert into TOP_100_LAST_NAMES (last_name) values ('HUGHES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JACKSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('JACKSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JAMES');
+insert into TOP_100_LAST_NAMES (last_name) values ('JAMES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JENKINS');
+insert into TOP_100_LAST_NAMES (last_name) values ('JENKINS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JOHNSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('JOHNSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('JONES');
+insert into TOP_100_LAST_NAMES (last_name) values ('JONES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('KELLY');
+insert into TOP_100_LAST_NAMES (last_name) values ('KELLY')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('KING');
+insert into TOP_100_LAST_NAMES (last_name) values ('KING')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LEE');
+insert into TOP_100_LAST_NAMES (last_name) values ('LEE')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LEWIS');
+insert into TOP_100_LAST_NAMES (last_name) values ('LEWIS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LONG');
+insert into TOP_100_LAST_NAMES (last_name) values ('LONG')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('LOPEZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('LOPEZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MARTIN');
+insert into TOP_100_LAST_NAMES (last_name) values ('MARTIN')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MARTINEZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('MARTINEZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MILLER');
+insert into TOP_100_LAST_NAMES (last_name) values ('MILLER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MITCHELL');
+insert into TOP_100_LAST_NAMES (last_name) values ('MITCHELL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MOORE');
+insert into TOP_100_LAST_NAMES (last_name) values ('MOORE')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MORGAN');
+insert into TOP_100_LAST_NAMES (last_name) values ('MORGAN')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MORRIS');
+insert into TOP_100_LAST_NAMES (last_name) values ('MORRIS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('MURPHY');
+insert into TOP_100_LAST_NAMES (last_name) values ('MURPHY')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('NELSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('NELSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PARKER');
+insert into TOP_100_LAST_NAMES (last_name) values ('PARKER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PATTERSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('PATTERSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PEREZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('PEREZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PERRY');
+insert into TOP_100_LAST_NAMES (last_name) values ('PERRY')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PETERSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('PETERSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PHILLIPS');
+insert into TOP_100_LAST_NAMES (last_name) values ('PHILLIPS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('POWELL');
+insert into TOP_100_LAST_NAMES (last_name) values ('POWELL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('PRICE');
+insert into TOP_100_LAST_NAMES (last_name) values ('PRICE')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RAMIREZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('RAMIREZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('REED');
+insert into TOP_100_LAST_NAMES (last_name) values ('REED')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RICHARDSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('RICHARDSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RIVERA');
+insert into TOP_100_LAST_NAMES (last_name) values ('RIVERA')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROBERTS');
+insert into TOP_100_LAST_NAMES (last_name) values ('ROBERTS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROBINSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('ROBINSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RODRIGUEZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('RODRIGUEZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROGERS');
+insert into TOP_100_LAST_NAMES (last_name) values ('ROGERS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('ROSS');
+insert into TOP_100_LAST_NAMES (last_name) values ('ROSS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('RUSSELL');
+insert into TOP_100_LAST_NAMES (last_name) values ('RUSSELL')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SANCHEZ');
+insert into TOP_100_LAST_NAMES (last_name) values ('SANCHEZ')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SANDERS');
+insert into TOP_100_LAST_NAMES (last_name) values ('SANDERS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SCOTT');
+insert into TOP_100_LAST_NAMES (last_name) values ('SCOTT')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SIMMONS');
+insert into TOP_100_LAST_NAMES (last_name) values ('SIMMONS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('SMITH');
+insert into TOP_100_LAST_NAMES (last_name) values ('SMITH')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('STEWART');
+insert into TOP_100_LAST_NAMES (last_name) values ('STEWART')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('TAYLOR');
+insert into TOP_100_LAST_NAMES (last_name) values ('TAYLOR')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('THOMAS');
+insert into TOP_100_LAST_NAMES (last_name) values ('THOMAS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('THOMPSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('THOMPSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('TORRES');
+insert into TOP_100_LAST_NAMES (last_name) values ('TORRES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('TURNER');
+insert into TOP_100_LAST_NAMES (last_name) values ('TURNER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WALKER');
+insert into TOP_100_LAST_NAMES (last_name) values ('WALKER')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WARD');
+insert into TOP_100_LAST_NAMES (last_name) values ('WARD')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WASHINGTON');
+insert into TOP_100_LAST_NAMES (last_name) values ('WASHINGTON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WATSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('WATSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WHITE');
+insert into TOP_100_LAST_NAMES (last_name) values ('WHITE')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WILLIAMS');
+insert into TOP_100_LAST_NAMES (last_name) values ('WILLIAMS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WILSON');
+insert into TOP_100_LAST_NAMES (last_name) values ('WILSON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WOOD');
+insert into TOP_100_LAST_NAMES (last_name) values ('WOOD')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('WRIGHT');
+insert into TOP_100_LAST_NAMES (last_name) values ('WRIGHT')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> insert into TOP_100_LAST_NAMES (last_name) values ('YOUNG');
+insert into TOP_100_LAST_NAMES (last_name) values ('YOUNG')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.TOP_100_LAST_NAMES_PK) violated
+
+
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> execute SYS.DBMS_STATS.gather_table_stats(USER, 'TOP_100_LAST_NAMES');
+
+PL/SQL procedure successfully completed.
+
+SQL> @a_thru_z.ins
+SQL> rem a_thru_z.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem The letters A through Z
+SQL> 
+SQL> declare
+  2  
+  3  begin
+  4    for i in ascii('A')..ascii('Z') loop
+  5  	 insert into A_THRU_Z (
+  6  		letter )
+  7  	 values (
+  8  		chr(i));
+  9    end loop;
+ 10    commit;
+ 11  end;
+ 12  /
+declare
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.A_THRU_Z_PK) violated
+ORA-06512: at line 5
+
+
+SQL> 
+SQL> execute SYS.DBMS_STATS.gather_table_stats(USER, 'A_THRU_Z');
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> @gender_type.pks
+SQL> create or replace PACKAGE GENDER_TYPE as
+  2  /*
+  3  gender_type.pks
+  4  by Don Bales on 2014-10-20
+  5  Table GENDER_TYPES's methods.
+  6  */
+  7  
+  8  
+  9  /*
+ 10  Gets the code and decription values for the specified id.
+ 11  */
+ 12  PROCEDURE get_code_descr(
+ 13  ain_id			    in	   GENDER_TYPES.id%TYPE,
+ 14  aov_code			       out GENDER_TYPES.code%TYPE,
+ 15  aov_description		       out GENDER_TYPES.description%TYPE);
+ 16  
+ 17  
+ 18  /*
+ 19  Verifies that the passed code value is an exact or like match on the date specified.
+ 20  */
+ 21  PROCEDURE get_code_id_descr(
+ 22  aiov_code			    in out GENDER_TYPES.code%TYPE,
+ 23  aon_id			       out GENDER_TYPES.id%TYPE,
+ 24  aov_description		       out GENDER_TYPES.description%TYPE,
+ 25  aid_on			    in	   GENDER_TYPES.active_date%TYPE);
+ 26  
+ 27  
+ 28  /*
+ 29  Verifies that the passed code value is currently an exact or like match.
+ 30  */
+ 31  PROCEDURE get_code_id_descr(
+ 32  aiov_code			    in out GENDER_TYPES.code%TYPE,
+ 33  aon_id			       out GENDER_TYPES.id%TYPE,
+ 34  aov_description		       out GENDER_TYPES.description%TYPE);
+ 35  
+ 36  
+ 37  /*
+ 38  Returns a new primary key id value for a row.
+ 39  */
+ 40  FUNCTION get_id
+ 41  return				   GENDER_TYPES.id%TYPE;
+ 42  
+ 43  
+ 44  /*
+ 45  Returns the id for the specified code value.
+ 46  */
+ 47  FUNCTION get_id(
+ 48  aiv_code			    in	   GENDER_TYPES.code%TYPE)
+ 49  return				   GENDER_TYPES.id%TYPE;
+ 50  
+ 51  
+ 52  /*
+ 53  Test-based help for this package.	"set serveroutput on" in SQL*Plus.
+ 54  */
+ 55  PROCEDURE help;
+ 56  
+ 57  
+ 58  /*
+ 59  Test units for this package.
+ 60  */
+ 61  PROCEDURE test;
+ 62  
+ 63  
+ 64  end GENDER_TYPE;
+ 65  /
+
+Package created.
+
+SQL> @se.sql GENDER_TYPE
+SQL> show errors
+No errors.
+SQL> @worker.pks
+SQL> create or replace PACKAGE WORKER as
+  2  /*
+  3  worker.pks
+  4  by Don Bales on 2014-10-20
+  5  Table WORKERS' methods
+  6  */
+  7  
+  8  
+  9  FUNCTION get_external_id
+ 10  return				   WORKERS.external_id%TYPE;
+ 11  
+ 12  
+ 13  FUNCTION get_id
+ 14  return				   WORKERS.id%TYPE;
+ 15  
+ 16  
+ 17  FUNCTION get_formatted_name(
+ 18  aiv_first_name		    in	   WORKERS.first_name%TYPE,
+ 19  aiv_middle_name		    in	   WORKERS.middle_name%TYPE,
+ 20  aiv_last_name		    in	   WORKERS.last_name%TYPE)
+ 21  return				   WORKERS.name%TYPE;
+ 22  
+ 23  
+ 24  FUNCTION get_unformatted_name(
+ 25  aiv_first_name		    in	   WORKERS.first_name%TYPE,
+ 26  aiv_middle_name		    in	   WORKERS.middle_name%TYPE,
+ 27  aiv_last_name		    in	   WORKERS.last_name%TYPE)
+ 28  return				   WORKERS.name%TYPE;
+ 29  
+ 30  
+ 31  FUNCTION is_duplicate(
+ 32  aiv_name			    in	   WORKERS.name%TYPE,
+ 33  aid_birth_date		    in	   WORKERS.birth_date%TYPE,
+ 34  ain_gender_type_id 	    in	   WORKERS.gender_type_id%TYPE)
+ 35  return				   boolean;
+ 36  
+ 37  
+ 38  end WORKER;
+ 39  /
+
+Package created.
+
+SQL> @se.sql WORKER
+SQL> show errors
+No errors.
+SQL> 
+SQL> @worker_type.pks
+SQL> create or replace PACKAGE WORKER_TYPE as
+  2  /*
+  3  worker_type.pks
+  4  by Don Bales on 2014-10-20
+  5  Code Table WORKER_TYPES' methods.
+  6  */
+  7  
+  8  
+  9  -- Returns the id for the specified code value.
+ 10  
+ 11  FUNCTION get_id(
+ 12  aiv_code			    in	   WORKER_TYPES.code%TYPE )
+ 13  return				   WORKER_TYPES.id%TYPE;
+ 14  
+ 15  
+ 16  end WORKER_TYPE;
+ 17  /
+
+Package created.
+
+SQL> @se.sql WORKER_TYPE
+SQL> show errors
+No errors.
+SQL> 
+SQL> 
+SQL> @gender_type.pkb
+SQL> create or replace PACKAGE BODY GENDER_TYPE as
+  2  /*
+  3  gender_type.pkb
+  4  by Don Bales on 2014-10-20
+  5  Table GENDER_TYPES's methods
+  6  */
+  7  
+  8  
+  9  -- FUNCTIONS
+ 10  
+ 11  FUNCTION get_id
+ 12  return				   GENDER_TYPES.id%TYPE is
+ 13  
+ 14  n_id				   GENDER_TYPES.id%TYPE;
+ 15  
+ 16  begin
+ 17    select GENDER_TYPES_ID.nextval
+ 18    into   n_id
+ 19    from   SYS.DUAL;
+ 20  
+ 21    return n_id;
+ 22  end get_id;
+ 23  
+ 24  
+ 25  FUNCTION get_id(
+ 26  aiv_code			    in	   GENDER_TYPES.code%TYPE )
+ 27  return				   GENDER_TYPES.id%TYPE is
+ 28  
+ 29  n_id				   GENDER_TYPES.id%TYPE;
+ 30  
+ 31  begin
+ 32    select id
+ 33    into   n_id
+ 34    from   GENDER_TYPES
+ 35    where  code = aiv_code;
+ 36  
+ 37    return n_id;
+ 38  end get_id;
+ 39  
+ 40  
+ 41  -- PROCEDURES
+ 42  
+ 43  PROCEDURE get_code_descr(
+ 44  ain_id			    in	   GENDER_TYPES.id%TYPE,
+ 45  aov_code			       out GENDER_TYPES.code%TYPE,
+ 46  aov_description		       out GENDER_TYPES.description%TYPE ) is
+ 47  
+ 48  begin
+ 49    select code,
+ 50  	      description
+ 51    into   aov_code,
+ 52  	      aov_description
+ 53    from   GENDER_TYPES
+ 54    where  id = ain_id;
+ 55  end get_code_descr;
+ 56  
+ 57  
+ 58  PROCEDURE get_code_id_descr(
+ 59  aiov_code			    in out GENDER_TYPES.code%TYPE,
+ 60  aon_id			       out GENDER_TYPES.id%TYPE,
+ 61  aov_description		       out GENDER_TYPES.description%TYPE,
+ 62  aid_on			    in	   GENDER_TYPES.active_date%TYPE ) is
+ 63  
+ 64  v_code				   GENDER_TYPES.code%TYPE;
+ 65  
+ 66  begin
+ 67    select id,
+ 68  	      description
+ 69    into   aon_id,
+ 70  	      aov_description
+ 71    from   GENDER_TYPES
+ 72    where  code = aiov_code
+ 73    and    aid_on between active_date and nvl(inactive_date, DATE_.d_MAX);
+ 74  exception
+ 75    when NO_DATA_FOUND then
+ 76  	 select id,
+ 77  		code,
+ 78  		description
+ 79  	 into	aon_id,
+ 80  		v_code,
+ 81  		aov_description
+ 82  	 from	GENDER_TYPES
+ 83  	 where	code like aiov_code||'%'
+ 84  	 and	aid_on between active_date and nvl(inactive_date, DATE_.d_MAX);
+ 85  
+ 86  	 aiov_code := v_code;
+ 87  end get_code_id_descr;
+ 88  
+ 89  
+ 90  PROCEDURE get_code_id_descr(
+ 91  aiov_code			    in out GENDER_TYPES.code%TYPE,
+ 92  aon_id			       out GENDER_TYPES.id%TYPE,
+ 93  aov_description		       out GENDER_TYPES.description%TYPE ) is
+ 94  
+ 95  begin
+ 96   get_code_id_descr(
+ 97    aiov_code,
+ 98    aon_id,
+ 99    aov_description,
+100    SYSDATE );
+101  end get_code_id_descr;
+102  
+103  
+104  PROCEDURE help is
+105  
+106  begin
+107   pl('No help yet!');
+108  end help;
+109  
+110  
+111  PROCEDURE test is
+112  
+113  begin
+114    pl('No tests yet!');
+115  end test;
+116  
+117  
+118  end GENDER_TYPE;
+119  /
+
+Package body created.
+
+SQL> @be.sql GENDER_TYPE
+SQL> show errors
+No errors.
+SQL> 
+SQL> @worker.pkb
+SQL> create or replace PACKAGE BODY WORKER as
+  2  /*
+  3  worker.pkb
+  4  by Don Bales on 2014-10-20
+  5  Table WORKERS' methods
+  6  */
+  7  
+  8  
+  9  FUNCTION get_external_id
+ 10  return				   WORKERS.external_id%TYPE is
+ 11  
+ 12  v_external_id			   WORKERS.external_id%TYPE;
+ 13  
+ 14  begin
+ 15    select lpad(to_char(EXTERNAL_ID_SEQ.nextval), 9, '0')
+ 16    into   v_external_id
+ 17    from   SYS.DUAL;
+ 18  
+ 19    return v_external_id;
+ 20  end get_external_id;
+ 21  
+ 22  
+ 23  FUNCTION get_id
+ 24  return				   WORKERS.id%TYPE is
+ 25  
+ 26  n_id				   WORKERS.id%TYPE;
+ 27  
+ 28  begin
+ 29    select WORKERS_ID.nextval
+ 30    into   n_id
+ 31    from   SYS.DUAL;
+ 32  
+ 33    return n_id;
+ 34  end get_id;
+ 35  
+ 36  
+ 37  FUNCTION get_formatted_name(
+ 38  aiv_first_name		    in	   WORKERS.first_name%TYPE,
+ 39  aiv_middle_name		    in	   WORKERS.middle_name%TYPE,
+ 40  aiv_last_name		    in	   WORKERS.last_name%TYPE)
+ 41  return				   WORKERS.name%TYPE is
+ 42  
+ 43  begin
+ 44   return aiv_last_name||', '||aiv_first_name||' '||aiv_middle_name;
+ 45  end get_formatted_name;
+ 46  
+ 47  
+ 48  FUNCTION get_unformatted_name(
+ 49  aiv_first_name		    in	   WORKERS.first_name%TYPE,
+ 50  aiv_middle_name		    in	   WORKERS.middle_name%TYPE,
+ 51  aiv_last_name		    in	   WORKERS.last_name%TYPE)
+ 52  return				   WORKERS.name%TYPE is
+ 53  
+ 54  begin
+ 55    return upper(replace(replace(replace(replace(replace(
+ 56  	 aiv_last_name||aiv_first_name||aiv_middle_name,
+ 57  	   '''', NULL), ',', NULL), '-', NULL), '.', NULL), ' ', NULL));
+ 58  end get_unformatted_name;
+ 59  
+ 60  
+ 61  FUNCTION is_duplicate(
+ 62  aiv_name			    in	   WORKERS.name%TYPE,
+ 63  aid_birth_date		    in	   WORKERS.birth_date%TYPE,
+ 64  ain_gender_type_id 	    in	   WORKERS.gender_type_id%TYPE)
+ 65  return				   boolean is
+ 66  
+ 67  n_selected 			   number;
+ 68  
+ 69  begin
+ 70    select count(1)
+ 71    into   n_selected
+ 72    from   WORKERS
+ 73    where  name	     = aiv_name
+ 74    and    birth_date     = aid_birth_date
+ 75    and    gender_type_id = ain_gender_type_id;
+ 76  
+ 77    if nvl(n_selected, 0) > 0 then
+ 78  	 return TRUE;
+ 79    else
+ 80  	 return FALSE;
+ 81    end if;
+ 82  end is_duplicate;
+ 83  
+ 84  
+ 85  end WORKER;
+ 86  /
+
+Package body created.
+
+SQL> @be.sql WORKER
+SQL> show errors
+No errors.
+SQL> 
+SQL> @worker_type.pkb
+SQL> create or replace PACKAGE BODY WORKER_TYPE as
+  2  /*
+  3  worker_type.pkb
+  4  by Don Bales on 2014-10-20
+  5  Table WORKER_TYPES' methods
+  6  */
+  7  
+  8  
+  9  -- FUNCTIONS
+ 10  
+ 11  FUNCTION get_id(
+ 12  aiv_code			    in	   WORKER_TYPES.code%TYPE )
+ 13  return				   WORKER_TYPES.id%TYPE is
+ 14  
+ 15  n_id				   WORKER_TYPES.id%TYPE;
+ 16  
+ 17  begin
+ 18    select id
+ 19    into   n_id
+ 20    from   WORKER_TYPES
+ 21    where  code = aiv_code;
+ 22  
+ 23    return n_id;
+ 24  end get_id;
+ 25  
+ 26  
+ 27  end WORKER_TYPE;
+ 28  /
+
+Package body created.
+
+SQL> @be.sql WORKER_TYPE
+SQL> show errors
+No errors.
+SQL> 
+SQL> 
+SQL> @workers_cursor_for_loop.ins
+SQL> rem workers_cursor_for_loop.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Seed the Workers table with the top 100 names
+SQL> rem 100 last x 100 first x 26 middle = 260,000 entries
+SQL> 
+SQL> set serveroutput on size 1000000;
+SQL> 
+SQL> declare
+  2  
+  3  -- This is the cursor for the last names.
+  4  cursor c_last is
+  5  select last_name
+  6  from   TOP_100_LAST_NAMES;
+  7  
+  8  -- This is the cursor for the first names.
+  9  cursor c_first is
+ 10  select first_name,
+ 11  	    gender_code
+ 12  from   TOP_100_FIRST_NAMES;
+ 13  
+ 14  -- This is the cursor for the middle initials.
+ 15  cursor c_middle is
+ 16  select letter
+ 17  from   A_THRU_Z;
+ 18  
+ 19  -- This is the number of seconds since midnight
+ 20  -- I'll use it to profile my code's performance.
+ 21  n_start				   number :=
+ 22    to_number(to_char(SYSDATE, 'SSSSS'));
+ 23  
+ 24  -- Here, I declare four psuedo-constants to hold the
+ 25  -- ID values from the code tables, rather than look
+ 26  -- them up repeatedly during the insert process.
+ 27  n_G_FEMALE 			   GENDER_TYPES.id%TYPE;
+ 28  n_G_MALE				   GENDER_TYPES.id%TYPE;
+ 29  n_WT_CONTRACTOR			   WORKER_TYPES.id%TYPE;
+ 30  n_WT_EMPLOYEE			   WORKER_TYPES.id%TYPE;
+ 31  
+ 32  -- I'll use this to keep track of the number of
+ 33  -- rows inserted.
+ 34  n_inserted 			   number := 0;
+ 35  
+ 36  -- Here, I declare a record anchored to the table so
+ 37  -- I can set the column values and then insert using
+ 38  -- the record.
+ 39  r_worker				   WORKERS%ROWTYPE;
+ 40  
+ 41  begin
+ 42    -- Get the ID values for the codes
+ 43    n_G_FEMALE      := GENDER_TYPE.get_id('F');
+ 44    n_G_MALE        := GENDER_TYPE.get_id('M');
+ 45    n_WT_CONTRACTOR := WORKER_TYPE.get_id('C');
+ 46    n_WT_EMPLOYEE   := WORKER_TYPE.get_id('E');
+ 47  
+ 48    -- Loop through the last names
+ 49    for r_last in c_last loop
+ 50  
+ 51  	 -- While looping through the last names,
+ 52  	 -- loop through the first names
+ 53  	 for r_first in c_first loop
+ 54  
+ 55  	   -- While looping through the last and first names
+ 56  	   -- loop through the 26 letters in the English
+ 57  	   -- Alphabet in order to get middle initials
+ 58  	   -- As an alternative, I could have used a FOR LOOP:
+ 59  --      for i in ascii('A')..ascii('Z') loop
+ 60  	   for r_middle in c_middle loop
+ 61  
+ 62  	     -- Initialize the record
+ 63  
+ 64  	     -- Get the PK using the table's package
+ 65  	     r_worker.id	       := WORKER.get_id();
+ 66  
+ 67  	     -- Flip flop from contractor to employee and back again
+ 68  	     if r_worker.worker_type_id = n_WT_CONTRACTOR then
+ 69  	       r_worker.worker_type_id := n_WT_EMPLOYEE;
+ 70  	     else
+ 71  	       r_worker.worker_type_id := n_WT_CONTRACTOR;
+ 72  	     end if;
+ 73  
+ 74  	     -- Get the External ID using the table's package
+ 75  	     r_worker.external_id      := WORKER.get_external_id();
+ 76  
+ 77  	     -- The first, middle, and last names come from the cursors
+ 78  	     r_worker.first_name       := r_first.first_name;
+ 79  --        r_worker.middle_name	 := chr(i)||'.';
+ 80  	     r_worker.middle_name      := r_middle.letter||'.';
+ 81  	     r_worker.last_name        := r_last.last_name;
+ 82  
+ 83  	     -- get the name using the table's package
+ 84  	     r_worker.name	       := WORKER.get_formatted_name(
+ 85  	       r_worker.first_name, r_worker.middle_name, r_worker.last_name);
+ 86  
+ 87  	     -- get a random date for a birth date
+ 88  	     r_worker.birth_date       := DATE_.random(
+ 89  	       to_number(to_char(SYSDATE, 'YYYY')) - 65,
+ 90  	       to_number(to_char(SYSDATE, 'YYYY')) - 18);
+ 91  
+ 92  	     -- selecrt the corresponding ID value
+ 93  	     if r_first.gender_code = 'F' then
+ 94  	       r_worker.gender_type_id := n_G_FEMALE;
+ 95  	     else
+ 96  	       r_worker.gender_type_id := n_G_MALE;
+ 97  	     end if;
+ 98  
+ 99  	     -- Insert the row into the database
+100  	     insert into WORKERS values r_worker;
+101  
+102  	     -- keep track of the number of inserts
+103  	     n_inserted := n_inserted + sql%rowcount;
+104  	   end loop; -- c_middle
+105  --      end loop; -- for i
+106  	   commit;  -- commit every 26 rows
+107  
+108  	 end loop; -- c_first
+109  
+110    end loop; -- c_last
+111    -- Display the results
+112    pl(to_char(n_inserted)||' rows inserted in '||
+113  	 (to_number(to_char(SYSDATE, 'SSSSS')) - n_start)||
+114  	 ' seconds.');
+115  end;
+116  /
+260000 rows inserted in 65 seconds.
+
+PL/SQL procedure successfully completed.
+
+SQL> @workers_bulk_collect.ins
+SQL> rem workers_bulk_collect.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Seed the Workers table with the top 100 names
+SQL> rem 100 last x 100 first x 26 middle = 260,000 entries
+SQL> 
+SQL> set serveroutput on size 1000000;
+SQL> 
+SQL> declare
+  2  
+  3  -- Declare a type for a PL/SQL table of last names
+  4  TYPE last_name_table is table of TOP_100_LAST_NAMES%ROWTYPE
+  5  index by binary_integer;
+  6  
+  7  -- Declare a type for a PL/SQL table of first names
+  8  TYPE first_name_table is table of TOP_100_FIRST_NAMES%ROWTYPE
+  9  index by binary_integer;
+ 10  
+ 11  -- Declare a type for a PL/SQL table of middle initials
+ 12  TYPE middle_name_table is table of A_THRU_Z%ROWTYPE
+ 13  index by binary_integer;
+ 14  
+ 15  -- This is the number of seconds since midnight
+ 16  -- I'll use it to profile my code's performance.
+ 17  n_start				   number :=
+ 18    to_number(to_char(SYSDATE, 'SSSSS'));
+ 19  
+ 20  -- Here, I declare four psuedo-constants to hold the
+ 21  -- ID values from the code tables, rather than look
+ 22  -- them up repeatedly during the insert process.
+ 23  n_G_FEMALE 			   GENDER_TYPES.id%TYPE;
+ 24  n_G_MALE				   GENDER_TYPES.id%TYPE;
+ 25  n_WT_CONTRACTOR			   WORKER_TYPES.id%TYPE;
+ 26  n_WT_EMPLOYEE			   WORKER_TYPES.id%TYPE;
+ 27  
+ 28  -- I'll use this to keep track of the number of
+ 29  -- rows inserted.
+ 30  n_inserted 			   number := 0;
+ 31  
+ 32  -- Here, I declare a record anchored to the table so
+ 33  -- I can set the column values and then insert using
+ 34  -- the record.
+ 35  r_worker				   WORKERS%ROWTYPE;
+ 36  
+ 37  -- Declare the three PL/SQL tables that replace cursors
+ 38  t_first				   first_name_table;
+ 39  t_middle				   middle_name_table;
+ 40  t_last				   last_name_table;
+ 41  
+ 42  begin
+ 43    -- Get the ID values for the codes
+ 44    n_G_FEMALE      := GENDER_TYPE.get_id('F');
+ 45    n_G_MALE        := GENDER_TYPE.get_id('M');
+ 46    n_WT_CONTRACTOR := WORKER_TYPE.get_id('C');
+ 47    n_WT_EMPLOYEE   := WORKER_TYPE.get_id('E');
+ 48  
+ 49    -- Bulk collect the tables into the PL/SQL tables
+ 50    select * bulk collect into t_last   from TOP_100_LAST_NAMES;
+ 51    select * bulk collect into t_first  from TOP_100_FIRST_NAMES;
+ 52    select * bulk collect into t_middle from A_THRU_Z;
+ 53  
+ 54    -- Loop through the last names
+ 55    for l in t_last.first..t_last.last loop
+ 56  
+ 57  	 -- While looping through the last names,
+ 58  	 -- loop through the first names
+ 59  	 for f in t_first.first..t_first.last loop
+ 60  
+ 61  	   -- While looping through the last and first names
+ 62  	   -- loop through the 26 letters in the English
+ 63  	   -- Alphabet in order to get middle initials
+ 64  	   for m in t_middle.first..t_middle.last loop
+ 65  
+ 66  	     -- Initialize the record
+ 67  
+ 68  	     -- Get the PK using the table's package
+ 69  	     r_worker.id	       := WORKER.get_id();
+ 70  
+ 71  	     -- Flip flop from contractor to employee and back again
+ 72  	     if r_worker.worker_type_id = n_WT_CONTRACTOR then
+ 73  	       r_worker.worker_type_id := n_WT_EMPLOYEE;
+ 74  	     else
+ 75  	       r_worker.worker_type_id := n_WT_CONTRACTOR;
+ 76  	     end if;
+ 77  
+ 78  	     -- Get the External ID using the table's package
+ 79  	     r_worker.external_id      := WORKER.get_external_id();
+ 80  
+ 81  	     -- The first, middle, and last names come from the cursors
+ 82  	     r_worker.first_name       := t_first(f).first_name;
+ 83  	     r_worker.middle_name      := t_middle(m).letter||'.';
+ 84  	     r_worker.last_name        := t_last(l).last_name;
+ 85  
+ 86  	     -- get the name using the table's package
+ 87  	     r_worker.name	       := WORKER.get_formatted_name(
+ 88  	       r_worker.first_name, r_worker.middle_name, r_worker.last_name);
+ 89  
+ 90  	     -- get a random date for a birth date
+ 91  	     r_worker.birth_date       := DATE_.random(
+ 92  	       to_number(to_char(SYSDATE, 'YYYY')) - 65,
+ 93  	       to_number(to_char(SYSDATE, 'YYYY')) - 18);
+ 94  
+ 95  	     -- selecrt the corresponding ID value
+ 96  	     if t_first(f).gender_code = 'F' then
+ 97  	       r_worker.gender_type_id := n_G_FEMALE;
+ 98  	     else
+ 99  	       r_worker.gender_type_id := n_G_MALE;
+100  	     end if;
+101  
+102  	     -- Insert the row into the database
+103  	     insert into WORKERS values r_worker;
+104  
+105  	     -- keep track of the number of inserts
+106  	     n_inserted := n_inserted + sql%rowcount;
+107  	   end loop; -- t_middle
+108  	   commit;  -- commit every 26 rows
+109  
+110  	 end loop; -- t_first
+111  
+112    end loop; -- t_last
+113    -- Display the results
+114    pl(to_char(n_inserted)||' rows inserted in '||
+115  	 (to_number(to_char(SYSDATE, 'SSSSS')) - n_start)||
+116  	 ' seconds.');
+117  end;
+118  /
+declare
+      *
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.WORKERS_UK2) violated
+ORA-06512: at line 103
+
+
+SQL> @workers_forall.ins
+SQL> rem workers_forall.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Seed the Workers table with the top 100 names
+SQL> rem 100 last x 100 first x 26 middle = 260,000 entries
+SQL> 
+SQL> set serveroutput on size 1000000;
+SQL> 
+SQL> declare
+  2  
+  3  -- Declare a type for a PL/SQL table of last names
+  4  TYPE last_name_table   is table of TOP_100_LAST_NAMES%ROWTYPE
+  5  index by binary_integer;
+  6  
+  7  -- Declare a type for a PL/SQL table of first names
+  8  TYPE first_name_table  is table of TOP_100_FIRST_NAMES%ROWTYPE
+  9  index by binary_integer;
+ 10  
+ 11  -- Declare a type for a PL/SQL table of middle initials
+ 12  TYPE middle_name_table is table of A_THRU_Z%ROWTYPE
+ 13  index by binary_integer;
+ 14  
+ 15  -- Declare a type for a PL/SQL table of workers
+ 16  TYPE worker_table	    is table of WORKERS%ROWTYPE
+ 17  index by binary_integer;
+ 18  
+ 19  -- This is the number of seconds since midnight
+ 20  -- I'll use it to profile my code's performance.
+ 21  n_start				   number :=
+ 22    to_number(to_char(SYSDATE, 'SSSSS'));
+ 23  
+ 24  -- Here, I declare four psuedo-constants to hold the
+ 25  -- ID values from the code tables, rather than look
+ 26  -- them up repeatedly during the insert process.
+ 27  n_G_FEMALE 			   GENDER_TYPES.id%TYPE;
+ 28  n_G_MALE				   GENDER_TYPES.id%TYPE;
+ 29  n_WT_CONTRACTOR			   WORKER_TYPES.id%TYPE;
+ 30  n_WT_EMPLOYEE			   WORKER_TYPES.id%TYPE;
+ 31  
+ 32  -- I'll use this to keep track of the number of
+ 33  -- rows inserted.
+ 34  n_inserted 			   number := 0;
+ 35  
+ 36  -- Declare the four PL/SQL tables that replace cursors
+ 37  -- and the worker record
+ 38  t_first				   first_name_table;
+ 39  t_middle				   middle_name_table;
+ 40  t_last				   last_name_table;
+ 41  t_workers				   worker_table;
+ 42  
+ 43  begin
+ 44    -- Get the ID values for the codes
+ 45    n_G_FEMALE      := GENDER_TYPE.get_id('F');
+ 46    n_G_MALE        := GENDER_TYPE.get_id('M');
+ 47    n_WT_CONTRACTOR := WORKER_TYPE.get_id('C');
+ 48    n_WT_EMPLOYEE   := WORKER_TYPE.get_id('E');
+ 49  
+ 50    -- Bulk collect the tables into the PL/SQL tables
+ 51    select * bulk collect into t_last   from TOP_100_LAST_NAMES;
+ 52    select * bulk collect into t_first  from TOP_100_FIRST_NAMES;
+ 53    select * bulk collect into t_middle from A_THRU_Z;
+ 54  
+ 55    -- Loop through the last names
+ 56    for l in t_last.first..t_last.last loop
+ 57  
+ 58  	 -- While looping through the last names,
+ 59  	 -- loop through the first names
+ 60  	 for f in t_first.first..t_first.last loop
+ 61  
+ 62  	   -- While looping through the last and first names
+ 63  	   -- loop through the 26 letters in the English
+ 64  	   -- Alphabet in order to get middle initials
+ 65  	   for m in t_middle.first..t_middle.last loop
+ 66  
+ 67  	     -- Initialize the table's rows
+ 68  
+ 69  	     -- Get the PK using the table's package
+ 70  	     t_workers(m).id		   := WORKER.get_id();
+ 71  
+ 72  	     -- Flip flop from contractor to employee and back again
+ 73  	     if t_workers(m).worker_type_id = n_WT_CONTRACTOR then
+ 74  	       t_workers(m).worker_type_id := n_WT_EMPLOYEE;
+ 75  	     else
+ 76  	       t_workers(m).worker_type_id := n_WT_CONTRACTOR;
+ 77  	     end if;
+ 78  
+ 79  	     -- Get the External ID using the table's package
+ 80  	     t_workers(m).external_id	   := WORKER.get_external_id();
+ 81  
+ 82  	     -- The first, middle, and last names come from the cursors
+ 83  	     t_workers(m).first_name	   := t_first(f).first_name;
+ 84  	     t_workers(m).middle_name	   := t_middle(m).letter||'.';
+ 85  	     t_workers(m).last_name	   := t_last(l).last_name;
+ 86  
+ 87  	     -- get the name using the table's package
+ 88  	     t_workers(m).name		   := WORKER.get_formatted_name(
+ 89  	       t_workers(m).first_name,
+ 90  	       t_workers(m).middle_name,
+ 91  	       t_workers(m).last_name);
+ 92  
+ 93  	     -- get a random date for a birth date
+ 94  	     t_workers(m).birth_date	   := DATE_.random(
+ 95  	       to_number(to_char(SYSDATE, 'YYYY')) - 65,
+ 96  	       to_number(to_char(SYSDATE, 'YYYY')) - 18);
+ 97  
+ 98  	     -- selecrt the corresponding ID value
+ 99  	     if t_first(f).gender_code = 'F' then
+100  	       t_workers(m).gender_type_id := n_G_FEMALE;
+101  	     else
+102  	       t_workers(m).gender_type_id := n_G_MALE;
+103  	     end if;
+104  
+105  	   end loop; -- t_middle
+106  
+107  	   -- Now bulk bind the 26 insert statements
+108  	   forall i in t_workers.first..t_workers.last
+109  	     insert into WORKERS values t_workers(i);
+110  
+111  	   n_inserted := n_inserted + sql%rowcount;
+112  
+113  	 end loop; -- t_first
+114  
+115    end loop; -- t_last
+116    commit;
+117    -- Display the results
+118    pl(to_char(n_inserted)||' rows inserted in '||
+119  	 (to_number(to_char(SYSDATE, 'SSSSS')) - n_start)||
+120  	 ' seconds.');
+121  end;
+122  /
+declare
+      *
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.WORKERS_UK2) violated
+ORA-06512: at line 108
+
+
+SQL> @workers.ins
+SQL> rem workers.ins
+SQL> rem by Donald J. Bales on 2014-10-20
+SQL> rem Seed the Worker table with the top 100 names
+SQL> rem 100 last x 100 first x 26 middle = 260,000 entries
+SQL> 
+SQL> set serveroutput on size 1000000;
+SQL> 
+SQL> declare
+  2  
+  3  -- This is the number of seconds since midnight
+  4  -- I'll use it to profile my code's performance.
+  5  n_start				   number :=
+  6    to_number(to_char(SYSDATE, 'SSSSS'));
+  7  
+  8  -- Here, I declare four psuedo-constants to hold the
+  9  -- ID values from the code tables, rather than look
+ 10  -- them up repeatedly during the insert process.
+ 11  n_G_FEMALE 			   GENDER_TYPES.id%TYPE;
+ 12  n_G_MALE				   GENDER_TYPES.id%TYPE;
+ 13  n_WT_CONTRACTOR			   WORKER_TYPES.id%TYPE;
+ 14  n_WT_EMPLOYEE			   WORKER_TYPES.id%TYPE;
+ 15  
+ 16  -- I'll use this to keep track of the number of
+ 17  -- rows inserted.
+ 18  n_inserted 			   number := 0;
+ 19  
+ 20  begin
+ 21    -- Get the ID values for the codes
+ 22    n_G_FEMALE      := GENDER_TYPE.get_id('F');
+ 23    n_G_MALE        := GENDER_TYPE.get_id('M');
+ 24    n_WT_CONTRACTOR := WORKER_TYPE.get_id('C');
+ 25    n_WT_EMPLOYEE   := WORKER_TYPE.get_id('E');
+ 26  
+ 27    -- Use an INSERT INTO SELECT SQL statement
+ 28    insert into WORKERS (
+ 29  	      id,
+ 30  	      worker_type_id,
+ 31  	      external_id,
+ 32  	      first_name,
+ 33  	      middle_name,
+ 34  	      last_name,
+ 35  	      name,
+ 36  	      birth_date,
+ 37  	      gender_type_id)
+ 38    select WORKERS_ID.nextval,
+ 39  	      decode(mod(WORKERS_ID.currval, 2),
+ 40  		0, n_WT_EMPLOYEE, n_WT_CONTRACTOR),
+ 41  	      lpad(to_char(EXTERNAL_ID_SEQ.nextval), 9, '0'),
+ 42  	      first_name,
+ 43  	      letter||'.',
+ 44  	      last_name,
+ 45  	      WORKER.get_formatted_name(
+ 46  		first_name, letter||'.', last_name),
+ 47  	      DATE_.random(
+ 48  		to_number(to_char(SYSDATE, 'YYYY')) - 65,
+ 49  		to_number(to_char(SYSDATE, 'YYYY')) - 18),
+ 50  	      decode(gender_code, 'F', n_G_FEMALE, n_G_MALE)
+ 51    from   TOP_100_LAST_NAMES,
+ 52  	      TOP_100_FIRST_NAMES,
+ 53  	      A_THRU_Z;
+ 54  
+ 55    n_inserted := n_inserted + sql%rowcount;
+ 56  
+ 57    commit;
+ 58  
+ 59    pl(to_char(n_inserted)||' rows inserted in '||
+ 60  	 (to_number(to_char(SYSDATE, 'SSSSS')) - n_start)||
+ 61  	 ' seconds.');
+ 62  end;
+ 63  /
+declare
+*
+ERROR at line 1:
+ORA-00001: unique constraint (RPS.WORKERS_UK2) violated
+ORA-06512: at line 28
+
+
+SQL> 
+SQL> spool off;

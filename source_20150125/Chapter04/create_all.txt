@@ -1,0 +1,152 @@
+SQL> 
+SQL> @ddl_.pks
+SQL> create or replace package	    DDL_ as
+  2  /*
+  3  ddl.pks
+  4  by Donald J. Bales on 2014-10-20
+  5  Error-less DDL commands
+  6  
+  7  Some database objects have a create or replace syntax.  While you're developing
+  8  that can be quite handy because it allows you to easily create a re-runnable
+  9  script.  This package adds a cuople of errorless drop commands that also make
+ 10  it easier to create a re-runnable script.
+ 11  */
+ 12  
+ 13  
+ 14  -- Drop the specified sequence if it exists.
+ 15  -- If it does not, report nothing, otherwise
+ 16  -- report the SQLERRM
+ 17  PROCEDURE dseq(
+ 18  aiv_sequence_name		    in	   varchar2);
+ 19  
+ 20  
+ 21  -- Drop the specified table if it exists.
+ 22  -- If it does not, report nothing, otherwise
+ 23  -- report the SQLERRM
+ 24  PROCEDURE dtab(
+ 25  aiv_table_name		    in	   varchar2);
+ 26  
+ 27  
+ 28  -- Drop the specified trigger if it exists.
+ 29  -- If it does not, report nothing, otherwise
+ 30  -- report the SQLERRM
+ 31  PROCEDURE dtrg(
+ 32  aiv_trigger_name		    in	   varchar2);
+ 33  
+ 34  
+ 35  end DDL_;
+ 36  /
+
+Package created.
+
+SQL> @se.sql
+SQL> show errors
+No errors.
+SQL> @ddl_.pkb
+SQL> create or replace package body DDL_ as
+  2  /*
+  3  ddl.pkb
+  4  by Donald J. Bales on 2014-10-20
+  5  Error-less DDL commands
+  6  */
+  7  
+  8  
+  9  PROCEDURE dseq(
+ 10  aiv_sequence_name		    in	   varchar2) is
+ 11  
+ 12  v_ddl				   varchar2(500);
+ 13  
+ 14  begin
+ 15    begin
+ 16  	 v_ddl := 'drop sequence '||aiv_sequence_name;
+ 17  
+ 18  	 execute immediate v_ddl;
+ 19  
+ 20  	 SYS.DBMS_OUTPUT.put_line('Sequence dropped.');
+ 21    exception
+ 22  	 when OTHERS then
+ 23  	   if SQLCODE = -2289 then
+ 24  	     SYS.DBMS_OUTPUT.put_line(substr(SQLERRM, instr(SQLERRM, ': ') + 2, 255));
+ 25  	   else
+ 26  	     SYS.DBMS_OUTPUT.put_line(SQLERRM);
+ 27  	   end if;
+ 28    end;
+ 29  end dseq;
+ 30  
+ 31  
+ 32  PROCEDURE dtab(
+ 33  aiv_table_name		    in	   varchar2) is
+ 34  
+ 35  v_ddl				   varchar2(500);
+ 36  
+ 37  begin
+ 38    begin
+ 39  	 v_ddl := 'drop table '||aiv_table_name;
+ 40  
+ 41  	 execute immediate v_ddl;
+ 42  
+ 43  	 SYS.DBMS_OUTPUT.put_line('Table dropped.');
+ 44    exception
+ 45  	 when OTHERS then
+ 46  	   if SQLCODE = -942 then
+ 47  	     SYS.DBMS_OUTPUT.put_line(substr(SQLERRM, instr(SQLERRM, ': ') + 2, 255));
+ 48  	   else
+ 49  	     SYS.DBMS_OUTPUT.put_line(SQLERRM);
+ 50  	   end if;
+ 51    end;
+ 52  end dtab;
+ 53  
+ 54  
+ 55  PROCEDURE dtrg(
+ 56  aiv_trigger_name		    in	   varchar2) is
+ 57  
+ 58  v_ddl				   varchar2(500);
+ 59  
+ 60  begin
+ 61    begin
+ 62  	 v_ddl := 'drop trigger '||aiv_trigger_name;
+ 63  
+ 64  	 execute immediate v_ddl;
+ 65  
+ 66  	 SYS.DBMS_OUTPUT.put_line('Trigger dropped.');
+ 67    exception
+ 68  	 when OTHERS then
+ 69  	   if SQLCODE = -4080 then
+ 70  	     SYS.DBMS_OUTPUT.put_line(substr(SQLERRM, instr(SQLERRM, ': ') + 2, 255));
+ 71  	   else
+ 72  	     SYS.DBMS_OUTPUT.put_line(SQLERRM);
+ 73  	   end if;
+ 74    end;
+ 75  end dtrg;
+ 76  
+ 77  
+ 78  end DDL_;
+ 79  /
+
+Package body created.
+
+SQL> @be.sql
+SQL> show errors
+No errors.
+SQL> @pl.prc
+SQL> create or replace PROCEDURE pl(
+  2  aiv_text			    in	   varchar2 ) is
+  3  /*
+  4  pl.prc
+  5  by Donald J. Bales on 2014-10-20
+  6  A wrapper procedure for SYS.DBMS_OUTPUT.put_line()
+  7  for the lazy typist.
+  8  */
+  9  
+ 10  begin
+ 11    SYS.DBMS_OUTPUT.put_line(aiv_text);
+ 12  end pl;
+ 13  /
+
+Procedure created.
+
+SQL> @pe.sql pl
+SQL> show errors
+No errors.
+SQL> 
+SQL> spool off;

@@ -1,0 +1,25 @@
+rem debugs.tab
+rem by Donald Bales on 2014-10-20
+rem Create debugging message table
+
+--drop   table DEBUGS;
+create table DEBUGS (
+id                             number                         not null,
+text                           varchar2(256),
+unique_session_id              varchar2(24)                   not null,
+insert_user                    varchar2(30)  default USER     not null,
+insert_date                    date          default SYSDATE  not null );
+
+alter  table DEBUGS add
+constraint   DEBUGS_PK
+primary key (
+id )
+using index;
+
+--drop   sequence DEBUGS_ID;
+create sequence DEBUGS_ID
+start with 1 order;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'DEBUGS');
+
+grant all on DEBUGS to PUBLIC;

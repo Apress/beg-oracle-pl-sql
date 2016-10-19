@@ -1,0 +1,22 @@
+rem gender_types.tab
+rem by Donald J. Bales on 2014-10-20 
+rem Create an object table for the Gender Type codes
+
+--drop   table GENDER_TYPES;
+create table GENDER_TYPES of GENDER_TYPE;
+
+--drop   sequence GENDERS_ID;
+create sequence GENDERS_ID
+start with 1;
+
+alter  table GENDER_TYPES add
+constraint   GENDER_TYPES_PK
+primary key ( id )
+using index;
+
+alter  table GENDER_TYPES add
+constraint   GENDER_TYPES_UK
+unique ( code, active_date )
+using index;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'GENDER_TYPES');

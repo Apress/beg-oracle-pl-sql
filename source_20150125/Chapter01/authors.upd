@@ -1,0 +1,4 @@
+UPDATE authors
+set    name = upper(name);
+
+COMMIT;

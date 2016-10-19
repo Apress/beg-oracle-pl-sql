@@ -1,0 +1,46 @@
+	rem task_substances.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold the substances assicated with a task
+
+-- drop table TASK_SUBSTANCES;
+create table TASK_SUBSTANCES (
+id                             number(38)                     not null,
+task_id                        number(38)                     not null,
+substance_id                   number(38)                     not null,
+hazard_level_type_id           number(38)                     not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+-- drop sequence TASK_SUBSTANCES_ID;
+create sequence TASK_SUBSTANCES_ID
+start with 1;
+
+alter  table TASK_SUBSTANCES add
+constraint   TASK_SUBSTANCES_PK
+primary key ( id )
+using index;
+
+alter  table TASK_SUBSTANCES add
+constraint   TASK_SUBSTANCES_UK
+unique ( 
+task_id,
+substance_id,
+active_date )
+using index;
+
+alter  table TASK_SUBSTANCES add
+constraint   TASK_SUBSTANCES_FK1
+foreign key   ( task_id )
+references   TASKS ( id );
+
+alter  table TASK_SUBSTANCES add
+constraint   TASK_SUBSTANCES_FK2
+foreign key   ( substance_id )
+references   SUBSTANCES ( id );
+
+alter  table TASK_SUBSTANCES add
+constraint   TASK_SUBSTANCES_FK3
+foreign key   ( hazard_level_type_id )
+references   HAZARD_LEVEL_TYPES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'TASK_SUBSTANCES');

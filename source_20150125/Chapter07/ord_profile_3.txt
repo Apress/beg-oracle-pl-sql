@@ -1,0 +1,58 @@
+
+UNIT_NAME     AVG_TIME OCCUR LINE# TEXT
+------------- -------- ----- ----- ----------------------------------------
+<anonymous>      28002     2     1
+<anonymous>          0     0     1
+<anonymous>          0     0     1
+<anonymous>      77005     2     1
+<anonymous>      74505     2     1
+<anonymous>       1000     1     3
+<anonymous>          0     0     6
+<anonymous>      53003     1     7
+<anonymous>       2000     1     8
+<anonymous>        818    11     9
+<anonymous>       8301    10    10
+<anonymous>      56003     1    11
+<anonymous>       6800    10    11
+<anonymous>      10701    10    12
+<anonymous>       1000     1    12
+<anonymous>       2000     1    14
+<anonymous>       2000     1    15
+<anonymous>       1000     1    16
+<anonymous>        545    11    17
+<anonymous>       5100    10    18
+<anonymous>       3200    10    20
+<anonymous>       1000     1    22
+<anonymous>       1000     1    23
+DEBUG             7000     1     1 package body DEBUG as
+DEBUG                0     0     1
+DEBUG                0     1     8
+DEBUG             1955    22    16 FUNCTION get_id
+DEBUG           136372    22    22 select DEBUGS_ID.nextval
+DEBUG              636    22    26 return n_id;
+DEBUG             1955    22    27 end get_id;
+DEBUG            36002     1    28
+DEBUG                0     0    30 PROCEDURE disable(
+DEBUG             3000     1    36 v_program_unit := upper(aiv_program_unit
+DEBUG             2000     1    38 if t_program_unit.exists(v_program_unit)
+DEBUG             3000     1    39 t_program_unit.delete(v_program_unit);
+DEBUG             1000     1    41 end disable;
+DEBUG                0     0    44 PROCEDURE enable(
+DEBUG             7000     1    50 v_program_unit := upper(aiv_program_unit
+DEBUG            67004     1    52 if not t_program_unit.exists(v_program_u
+DEBUG             9000     1    53 t_program_unit(v_program_unit) := NULL;
+DEBUG             1000     1    55 end enable;
+DEBUG                0     0    58 PROCEDURE set_text(
+DEBUG             3932    44    66 begin
+DEBUG             3341    44    67 v_program_unit := upper(aiv_program_unit
+DEBUG             2682    44    69 if t_program_unit.exists(v_program_unit)
+DEBUG           108370    22    70 insert into DEBUGS (
+DEBUG            90710    44    79 commit;
+DEBUG             3500    44    80 end set_text;
+DEBUG             1000     1    83 end DEBUG;
+PL                   0     0     1 PROCEDURE pl(
+PL               44002     1    11 SYS.DBMS_OUTPUT.put_line(aiv_text);
+PL                1000     1    12 end pl;
+
+52 rows selected.
+

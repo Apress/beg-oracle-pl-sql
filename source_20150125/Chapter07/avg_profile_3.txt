@@ -1,0 +1,49 @@
+
+UNIT_NAME   AVG_PCT OCCUR LINE# TEXT
+----------- ------- ----- ----- ------------------------------------------
+DEBUG         15.67    22    22 select DEBUGS_ID.nextval
+DEBUG         12.45    22    70 insert into DEBUGS (
+DEBUG         10.42    44    79 commit;
+<anonymous>    8.85     2     1
+<anonymous>    8.56     2     1
+DEBUG          7.70     1    52 if not t_program_unit.exists(v_program_uni
+<anonymous>    6.43     1    11
+<anonymous>    6.09     1     7
+PL             5.06     1    11 SYS.DBMS_OUTPUT.put_line(aiv_text);
+DEBUG          4.14     1    28
+<anonymous>    3.22     2     1
+<anonymous>    1.23    10    12
+DEBUG          1.03     1    53 t_program_unit(v_program_unit) := NULL;
+<anonymous>    0.95    10    10
+DEBUG          0.80     1     1 package body DEBUG as
+DEBUG          0.80     1    50 v_program_unit := upper(aiv_program_unit);
+<anonymous>    0.78    10    11
+<anonymous>    0.59    10    18
+DEBUG          0.45    44    66 begin
+DEBUG          0.40    44    80 end set_text;
+DEBUG          0.38    44    67 v_program_unit := upper(aiv_program_unit);
+<anonymous>    0.37    10    20
+DEBUG          0.34     1    36 v_program_unit := upper(aiv_program_unit);
+DEBUG          0.34     1    39 t_program_unit.delete(v_program_unit);
+DEBUG          0.31    44    69 if t_program_unit.exists(v_program_unit) t
+<anonymous>    0.23     1     8
+<anonymous>    0.23     1    14
+<anonymous>    0.23     1    15
+DEBUG          0.23     1    38 if t_program_unit.exists(v_program_unit) t
+DEBUG          0.22    22    16 FUNCTION get_id
+DEBUG          0.22    22    27 end get_id;
+<anonymous>    0.11     1     3
+<anonymous>    0.11     1    12
+<anonymous>    0.11     1    16
+<anonymous>    0.11     1    22
+<anonymous>    0.11     1    23
+DEBUG          0.11     1    41 end disable;
+DEBUG          0.11     1    55 end enable;
+DEBUG          0.11     1    83 end DEBUG;
+PL             0.11     1    12 end pl;
+<anonymous>    0.09    11     9
+DEBUG          0.07    22    26 return n_id;
+<anonymous>    0.06    11    17
+
+43 rows selected.
+

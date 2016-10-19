@@ -1,0 +1,22 @@
+rem worker_type.tab
+rem copyright by Donald J. Bales on 2014-10-20 
+rem Create an object table for the Worker Type codes
+
+--drop   table WORKER_TYPES;
+create table WORKER_TYPES of WORKER_TYPE;
+
+--drop   sequence WORKER_TYPES_ID;
+create sequence WORKER_TYPES_ID
+start with 1;
+
+alter  table WORKER_TYPES add
+constraint   WORKER_TYPES_PK
+primary key ( id )
+using index;
+
+alter  table WORKER_TYPES add
+constraint   WORKER_TYPES_UK
+unique ( code )
+using index;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORKER_TYPES');

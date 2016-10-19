@@ -1,0 +1,220 @@
+SQL> 
+SQL> @ddl_.pks
+SP2-0310: unable to open file "ddl_.pks"
+SQL> @ddl_.pkb
+SP2-0310: unable to open file "ddl_.pkb"
+SQL> @pl.prc
+SQL> create or replace PROCEDURE pl(
+  2  aiv_text			    in	   varchar2 ) is
+  3  /*
+  4  pl.prc
+  5  by Donald J. Bales on 2014-10-20
+  6  A wrapper procedure for SYS.DBMS_OUTPUT.put_line()
+  7  for the lazy typist.
+  8  */
+  9  
+ 10  begin
+ 11    SYS.DBMS_OUTPUT.put_line(aiv_text);
+ 12  end pl;
+ 13  /
+
+Procedure created.
+
+SQL> @pe.sql pl
+SQL> show errors
+No errors.
+SQL> 
+SQL> @parameter.pks
+SQL> create or replace package PARAMETER as
+  2  /*
+  3  parameter.pks
+  4  by Donald J. Bales on 2014-10-20
+  5  A packge to test parameter scope
+  6  */
+  7  
+  8  -- A function that execises the scope of parameters
+  9  FUNCTION in_out_inout(
+ 10  aiv_in			    in	   varchar2,
+ 11  aov_out			       out varchar2,
+ 12  aiov_inout 		    in out varchar2)
+ 13  return				   varchar2;
+ 14  
+ 15  
+ 16  -- A procedure that execises the scope of parameters
+ 17  PROCEDURE in_out_inout(
+ 18  aiv_in			    in	   varchar2,
+ 19  aov_out			       out varchar2,
+ 20  aiov_inout 		    in out varchar2);
+ 21  
+ 22  
+ 23  end PARAMETER;
+ 24  /
+
+Package created.
+
+SQL> @se.sql PARAMETER
+SQL> show errors
+No errors.
+SQL> @scope.pks
+SQL> create or replace package SCOPE as
+  2  /*
+  3  scope.pks
+  4  by Donald J. Bales on 2014-10-20
+  5  A package to test scope
+  6  */
+  7  
+  8  -- Here's a global variable declaration
+  9  gv_scope				   varchar2(80) :=
+ 10    'I''m a global (or package spec) variable';
+ 11  
+ 12  -- Here's a global (or package spec) function declaration
+ 13  FUNCTION my_scope_is_global
+ 14  return				   varchar2;
+ 15  
+ 16  -- Here's a global (or package spec) procedure declaration
+ 17  PROCEDURE my_scope_is_global;
+ 18  
+ 19  
+ 20  end SCOPE;
+ 21  /
+
+Package created.
+
+SQL> @se.sql SCOPE
+SQL> show errors
+No errors.
+SQL> 
+SQL> @parameter.pkb
+SQL> create or replace package body PARAMETER as
+  2  /*
+  3  parameter.pkb
+  4  by Donald J. Bales on 2014-10-20
+  5  A packge to test parameter scope
+  6  */
+  7  
+  8  FUNCTION in_out_inout(
+  9  aiv_in			    in	   varchar2,
+ 10  aov_out			       out varchar2,
+ 11  aiov_inout 		    in out varchar2)
+ 12  return				   varchar2 is
+ 13  begin
+ 14    pl(chr(9)||'Before assignments...');
+ 15    pl(chr(9)||'Inside function in_out_inout, aiv_in     = '||aiv_in);
+ 16    pl(chr(9)||'Inside function in_out_inout, aov_out    = '||aov_out);
+ 17    pl(chr(9)||'Inside function in_out_inout, aiov_inout = '||aiov_inout);
+ 18    -- You can only assign a value (write) to an OUT
+ 19    -- parameter, you can't read it!
+ 20    aov_out	 := 'OUT';
+ 21  
+ 22    -- You can only read an IN parameter
+ 23    aiov_inout := aiv_in;
+ 24  
+ 25    -- You can read and write an IN OUT parameter
+ 26    aiov_inout := aiov_inout||'OUT';
+ 27  
+ 28    pl(chr(9)||'After assignments...');
+ 29    pl(chr(9)||'Inside function in_out_inout, aiv_in     = '||aiv_in);
+ 30    pl(chr(9)||'Inside function in_out_inout, aov_out    = '||aov_out);
+ 31    pl(chr(9)||'Inside function in_out_inout, aiov_inout = '||aiov_inout);
+ 32    return 'OK'; -- a function must return a value!
+ 33  end in_out_inout;
+ 34  
+ 35  
+ 36  PROCEDURE in_out_inout(
+ 37  aiv_in			    in	   varchar2,
+ 38  aov_out			       out varchar2,
+ 39  aiov_inout 		    in out varchar2) is
+ 40  begin
+ 41    pl(chr(9)||'Before assignments...');
+ 42    pl(chr(9)||'Inside procedure in_out_inout, aiv_in     = '||aiv_in);
+ 43    pl(chr(9)||'Inside procedure in_out_inout, aov_out    = '||aov_out);
+ 44    pl(chr(9)||'Inside procedure in_out_inout, aiov_inout = '||aiov_inout);
+ 45    -- You can only assign a value (write) to an OUT
+ 46    -- parameter, you can't read it!
+ 47    aov_out	 := 'OUT';
+ 48  
+ 49    -- You can only read an IN parameter
+ 50    aiov_inout := aiv_in;
+ 51  
+ 52    -- You can read and write an IN OUT parameter
+ 53    aiov_inout := aiov_inout||'OUT';
+ 54    pl(chr(9)||'After assignments...');
+ 55    pl(chr(9)||'Inside procedure in_out_inout, aiv_in     = '||aiv_in);
+ 56    pl(chr(9)||'Inside procedure in_out_inout, aov_out    = '||aov_out);
+ 57    pl(chr(9)||'Inside procedure in_out_inout, aiov_inout = '||aiov_inout);
+ 58  end in_out_inout;
+ 59  
+ 60  
+ 61  end PARAMETER;
+ 62  /
+
+Package body created.
+
+SQL> @be.sql PARAMETER
+SQL> show errors
+No errors.
+SQL> @scope.pkb
+SQL> create or replace package body SCOPE as
+  2  /*
+  3  scope.pkb
+  4  by Donald J. Bales on 2014-10-20
+  5  A package to test scope
+  6  */
+  7  
+  8  -- Here's an instance (or package body) variable declaration
+  9  iv_scope				   varchar2(80) :=
+ 10    'I''m an instance (or package body) variable';
+ 11  
+ 12  
+ 13  -- Here's an instance (or package body) function declaration
+ 14  FUNCTION my_scope_is_instance
+ 15  return				   varchar2 is
+ 16  v_answer_1 			   varchar2(3) := 'Yes';
+ 17  begin
+ 18    pl(chr(9)||'Can function my_scope_is_instance see variable gv_scope?');
+ 19    pl(chr(9)||gv_scope);
+ 20    return v_answer_1;
+ 21  end my_scope_is_instance;
+ 22  
+ 23  
+ 24  -- Here's a global (or package spec) function declaration
+ 25  FUNCTION my_scope_is_global
+ 26  return				   varchar2 is
+ 27  v_answer_2 			   varchar2(3) := 'Yes';
+ 28  begin
+ 29    pl(chr(9)||'Can function my_scope_is_global see variable iv_scope?');
+ 30    pl(chr(9)||iv_scope);
+ 31    return v_answer_2;
+ 32  end my_scope_is_global;
+ 33  
+ 34  
+ 35  -- Here's an instance (or package body) procedure declaration
+ 36  PROCEDURE my_scope_is_instance is
+ 37  v_answer_3 			   varchar2(3) := 'Yes';
+ 38  begin
+ 39    pl(chr(9)||'Can procedure my_scope_is_instance see variable gv_scope?');
+ 40    pl(chr(9)||gv_scope);
+ 41    pl(v_answer_3);
+ 42  end my_scope_is_instance;
+ 43  
+ 44  
+ 45  -- Here's a global (or package spec) procedure declaration
+ 46  PROCEDURE my_scope_is_global is
+ 47  v_answer_4 			   varchar2(3) := 'Yes';
+ 48  begin
+ 49    pl(chr(9)||'Can procedure my_scope_is_global see variable iv_scope?');
+ 50    pl(chr(9)||iv_scope);
+ 51    pl(v_answer_4);
+ 52  end my_scope_is_global;
+ 53  
+ 54  
+ 55  end SCOPE;
+ 56  /
+
+Package body created.
+
+SQL> @se.sql SCOPE
+SQL> show errors
+No errors.
+SQL> 
+SQL> spool off;

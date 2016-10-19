@@ -1,0 +1,17 @@
+rem a_thru_z.tab
+rem by Donald J. Bales on 2014-10-20
+rem The letters A through Z
+
+exec ddl_.dtab('A_THRU_Z');
+create table    A_THRU_Z (
+letter                         varchar2(1));
+
+alter  table    A_THRU_Z add
+constraint      A_THRU_Z_PK
+primary key (
+letter )
+using index;
+
+grant select on A_THRU_Z to public;
+
+@a_thru_z.ins

@@ -1,0 +1,44 @@
+
+Explained.
+
+Plan hash value: 599918850
+
+---------------------------------------------------------------------------------------------------------------------
+| Id  | Operation                                  | Name                   | Rows  | Bytes | Cost (%CPU)| Time     |
+---------------------------------------------------------------------------------------------------------------------
+|   0 | INSERT STATEMENT                           |                        |   260K|  9648K|   723   (1)| 00:00:01 |
+|   1 |  LOAD TABLE CONVENTIONAL                   | WORKERS                |       |       |            |          |
+|   2 |   SEQUENCE                                 | WORKERS_ID             |       |       |            |          |
+|   3 |    MERGE JOIN CARTESIAN                    |                        |   260K|  9648K|   723   (1)| 00:00:01 |
+|   4 |     MERGE JOIN CARTESIAN                   |                        |  2600 | 75400 |    16   (0)| 00:00:01 |
+|   5 |      MERGE JOIN CARTESIAN                  |                        |    26 |   572 |     7   (0)| 00:00:01 |
+|   6 |       MERGE JOIN CARTESIAN                 |                        |     1 |    20 |     6   (0)| 00:00:01 |
+|   7 |        NESTED LOOPS                        |                        |     1 |    15 |     4   (0)| 00:00:01 |
+|   8 |         NESTED LOOPS                       |                        |     1 |    10 |     2   (0)| 00:00:01 |
+|   9 |          TABLE ACCESS BY INDEX ROWID       | GENDER_TYPES           |     1 |     5 |     1   (0)| 00:00:01 |
+|* 10 |           INDEX UNIQUE SCAN                | GENDER_TYPES_UK        |     1 |       |     0   (0)| 00:00:01 |
+|  11 |          TABLE ACCESS BY INDEX ROWID       | GENDER_TYPES           |     1 |     5 |     1   (0)| 00:00:01 |
+|* 12 |           INDEX UNIQUE SCAN                | GENDER_TYPES_UK        |     1 |       |     0   (0)| 00:00:01 |
+|  13 |         TABLE ACCESS BY INDEX ROWID        | WORKER_TYPES           |     1 |     5 |     2   (0)| 00:00:01 |
+|* 14 |          INDEX RANGE SCAN                  | WORKER_TYPES_UK        |     1 |       |     1   (0)| 00:00:01 |
+|  15 |        BUFFER SORT                         |                        |     1 |     5 |     4   (0)| 00:00:01 |
+|  16 |         TABLE ACCESS BY INDEX ROWID BATCHED| WORKER_TYPES           |     1 |     5 |     2   (0)| 00:00:01 |
+|* 17 |          INDEX RANGE SCAN                  | WORKER_TYPES_UK        |     1 |       |     1   (0)| 00:00:01 |
+|  18 |       BUFFER SORT                          |                        |    26 |    52 |     5   (0)| 00:00:01 |
+|  19 |        INDEX FULL SCAN                     | A_THRU_Z_PK            |    26 |    52 |     1   (0)| 00:00:01 |
+|  20 |      BUFFER SORT                           |                        |   100 |   700 |    15   (0)| 00:00:01 |
+|  21 |       INDEX FAST FULL SCAN                 | TOP_100_LAST_NAMES_PK  |   100 |   700 |     0   (0)| 00:00:01 |
+|  22 |     BUFFER SORT                            |                        |   100 |   900 |   723   (1)| 00:00:01 |
+|  23 |      INDEX FAST FULL SCAN                  | TOP_100_FIRST_NAMES_PK |   100 |   900 |     0   (0)| 00:00:01 |
+---------------------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+  10 - access("C4"."CODE"='M')
+  12 - access("C3"."CODE"='F')
+  14 - access("C1"."CODE"='E')
+  17 - access("C2"."CODE"='C')
+
+38 rows selected.
+

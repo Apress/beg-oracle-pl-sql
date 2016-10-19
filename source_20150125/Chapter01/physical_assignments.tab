@@ -1,0 +1,39 @@
+rem physical_assignments.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold physical workplace assignments
+
+--drop   table PHYSICAL_ASSIGNMENTS;
+create table PHYSICAL_ASSIGNMENTS (
+id                             number(38)                     not null,
+worker_id                      number(38)                     not null,
+physical_workplace_id          number(38)                     not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+--drop   sequence PHYSICAL_ASSIGNMENTS_ID;
+create sequence PHYSICAL_ASSIGNMENTS_ID
+start with 1;
+
+alter  table PHYSICAL_ASSIGNMENTS add
+constraint   PHYSICAL_ASSIGNMENTS_PK
+primary key ( id )
+using index;
+
+alter  table PHYSICAL_ASSIGNMENTS add
+constraint   PHYSICAL_ASSIGNMENTS_UK
+unique ( 
+worker_id,
+active_date )
+using index;
+
+alter  table PHYSICAL_ASSIGNMENTS add
+constraint   PHYSICAL_ASSIGNMENTS_FK1
+foreign key   ( worker_id )
+references   WORKERS ( id );
+
+alter  table PHYSICAL_ASSIGNMENTS add
+constraint   PHYSICAL_ASSIGNMENTS_FK2
+foreign key   ( physical_workplace_id )
+references   PHYSICAL_WORKPLACES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'PHYSICAL_ASSIGNMENTS');

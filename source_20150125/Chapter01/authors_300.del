@@ -1,0 +1,4 @@
+DELETE FROM authors
+WHERE  id = 300;
+
+ROLLBACK;

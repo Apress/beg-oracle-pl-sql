@@ -1,0 +1,6 @@
+ALTER TABLE authors ADD
+CONSTRAINT  authors_uk1
+UNIQUE (
+name,
+birth_date,
+gender );

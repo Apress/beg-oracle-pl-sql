@@ -1,0 +1,50 @@
+rem logical_workplaces.tab
+rem by Donald J. Bales on 2014-10-20
+rem 
+
+--drop   table LOGICAL_WORKPLACES;
+create table LOGICAL_WORKPLACES (
+id                             number(38)                     not null,
+parent_id                      number(38),
+id_context                     varchar2(100)                  not null,
+workplace_type_id              number                         not null,
+code                           varchar2(30)                   not null,
+name                           varchar2(80)                   not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null );
+
+--drop   sequence LOGICAL_WORKPLACES_ID;
+create sequence LOGICAL_WORKPLACES_ID
+start with 1;
+
+alter  table LOGICAL_WORKPLACES add
+constraint   LOGICAL_WORKPLACES_PK
+primary key ( 
+id )
+using index;
+
+alter  table LOGICAL_WORKPLACES add
+constraint   LOGICAL_WORKPLACES_UK1
+unique ( 
+id_context )
+using index;
+
+alter  table LOGICAL_WORKPLACES add
+constraint   LOGICAL_WORKPLACES_UK2
+unique ( 
+code,
+name,
+active_date )
+using index;
+
+alter  table LOGICAL_WORKPLACES add
+constraint   LOGICAL_WORKPLACES_FK1
+foreign key              ( parent_id )
+references   LOGICAL_WORKPLACES ( id );
+
+alter  table LOGICAL_WORKPLACES add
+constraint   LOGICAL_WORKPLACES_FK2
+foreign key   ( workplace_type_id )
+references   WORKPLACE_TYPES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'LOGICAL_WORKPLACES');

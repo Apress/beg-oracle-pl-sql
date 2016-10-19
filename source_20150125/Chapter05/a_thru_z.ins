@@ -1,0 +1,18 @@
+rem a_thru_z.ins
+rem by Donald J. Bales on 2014-10-20
+rem The letters A through Z
+
+declare
+
+begin
+  for i in ascii('A')..ascii('Z') loop
+    insert into A_THRU_Z (
+           letter )
+    values (
+           chr(i));
+  end loop;
+  commit;
+end;
+/
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'A_THRU_Z');

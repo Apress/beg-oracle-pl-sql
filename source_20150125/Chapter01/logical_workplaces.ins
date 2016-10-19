@@ -1,0 +1,271 @@
+rem logical_workplaces.ins
+rem by Donald J. Bales on 2014-10-20
+rem Add logical workplaces
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       NULL,
+       to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'VDMI',
+       'VERY DIRTY MANUFACTURING, INC.',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t
+where  t.code = 'C';
+
+       
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'SALE',
+       'SALES',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'B'
+and    p.code        = 'VDMI'
+and    p.name        = 'VERY DIRTY MANUFACTURING, INC.'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'MKTG',
+       'MARKETING',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'B'
+and    p.code        = 'VDMI'
+and    p.name        = 'VERY DIRTY MANUFACTURING, INC.'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'ACCT',
+       'ACCOUNTING',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'B'
+and    p.code        = 'VDMI'
+and    p.name        = 'VERY DIRTY MANUFACTURING, INC.'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'PDEV',
+       'PRODUCT DEVELOPMENT',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'B'
+and    p.code        = 'VDMI'
+and    p.name        = 'VERY DIRTY MANUFACTURING, INC.'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'MFG',
+       'MANUFACTURING',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'B'
+and    p.code        = 'VDMI'
+and    p.name        = 'VERY DIRTY MANUFACTURING, INC.'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'CHEM',
+       'CHEMICALS',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'D'
+and    p.code        = 'MFG'
+and    p.name        = 'MANUFACTURING'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'BIO',
+       'BIOLOGICALS',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'D'
+and    p.code        = 'MFG'
+and    p.name        = 'MANUFACTURING'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'METL',
+       'METALS',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'D'
+and    p.code        = 'MFG'
+and    p.name        = 'MANUFACTURING'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'RUSE',
+       'REUSABLES',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'D'
+and    p.code        = 'MFG'
+and    p.name        = 'MANUFACTURING'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'DISP',
+       'DISPOSABLES',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'D'
+and    p.code        = 'MFG'
+and    p.name        = 'MANUFACTURING'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+
+insert into LOGICAL_WORKPLACES (
+       id,
+       parent_id,
+       id_context,
+       workplace_type_id,
+       code,
+       name,
+       active_date )
+select LOGICAL_WORKPLACES_ID.nextval,
+       p.id,
+       p.id_context||'.'||to_char(LOGICAL_WORKPLACES_ID.currval),
+       t.id,
+       'HR',
+       'HUMAN RESOURCES',
+       to_date('19800101', 'YYYYMMDD')
+from   WORKPLACE_TYPES t,
+       LOGICAL_WORKPLACES p
+where  t.code        = 'B'
+and    p.code        = 'VDMI'
+and    p.name        = 'VERY DIRTY MANUFACTURING, INC.'
+and    p.active_date = to_date('19800101', 'YYYYMMDD');
+
+commit;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'LOGICAL_WORKPLACES');

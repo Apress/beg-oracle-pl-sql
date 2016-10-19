@@ -1,0 +1,17 @@
+rem top_100_last_names.tab
+rem by Donald J. Bales on 2014-10-20
+rem Top 100 last names from www.namestatistics.com
+
+exec ddl_.dtab('TOP_100_LAST_NAMES');
+create table    TOP_100_LAST_NAMES (
+last_name                      varchar2(30)                   not null);
+
+alter  table    TOP_100_LAST_NAMES add
+constraint      TOP_100_LAST_NAMES_PK
+primary key (
+last_name)
+using index;
+
+grant select on TOP_100_LAST_NAMES to public;
+
+@top_100_last_names.ins

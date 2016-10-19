@@ -1,0 +1,127 @@
+rem workers_cursor_for_loop.ins
+rem by Donald J. Bales on 2014-10-20
+rem Seed the Workers table with the top 100 names
+rem 100 last x 100 first x 26 middle = 260,000 entries
+
+set serveroutput on size 1000000;
+
+declare
+
+-- This is the cursor for the last names.
+cursor c_last is
+select last_name
+from   TOP_100_LAST_NAMES;
+
+-- This is the cursor for the first names.
+cursor c_first is
+select first_name,
+       gender_code
+from   TOP_100_FIRST_NAMES;
+
+-- This is the cursor for the middle initials.
+cursor c_middle is
+select letter
+from   A_THRU_Z;
+
+-- This is the number of seconds since midnight
+-- I'll use it to profile my code's performance.
+n_start                               number := 
+  to_number(to_char(SYSDATE, 'SSSSS'));
+
+-- Here, I declare four psuedo-constants to hold the
+-- ID values from the code tables, rather than look
+-- them up repeatedly during the insert process.
+n_G_FEMALE                            GENDER_TYPES.id%TYPE;
+n_G_MALE                              GENDER_TYPES.id%TYPE;
+n_WT_CONTRACTOR                       WORKER_TYPES.id%TYPE;
+n_WT_EMPLOYEE                         WORKER_TYPES.id%TYPE;
+
+-- I'll use this to keep track of the number of 
+-- rows inserted.
+n_inserted                            number := 0;
+
+-- Here, I declare a record anchored to the table so
+-- I can set the column values and then insert using
+-- the record.
+r_worker                              WORKERS%ROWTYPE;
+
+begin
+  delete WORKERS;
+  commit;
+  n_start := to_number(to_char(SYSDATE, 'SSSSS'));
+  
+  -- Get the ID values for the codes
+  n_G_FEMALE      := GENDER_TYPE.get_id('F');
+  n_G_MALE        := GENDER_TYPE.get_id('M');
+  n_WT_CONTRACTOR := WORKER_TYPE.get_id('C');
+  n_WT_EMPLOYEE   := WORKER_TYPE.get_id('E');
+
+  -- Loop through the last names
+  for r_last in c_last loop
+
+    -- While looping through the last names,
+    -- loop through the first names
+    for r_first in c_first loop
+
+      -- While looping through the last and first names
+      -- loop through the 26 letters in the English
+      -- Alphabet in order to get middle initials
+      -- As an alternative, I could have used a FOR LOOP:
+--      for i in ascii('A')..ascii('Z') loop
+      for r_middle in c_middle loop
+
+        -- Initialize the record
+
+        -- Get the PK using the table's package
+        r_worker.id               := WORKER.get_id();
+
+        -- Flip flop from contractor to employee and back again
+        if r_worker.worker_type_id = n_WT_CONTRACTOR then
+          r_worker.worker_type_id := n_WT_EMPLOYEE;
+        else  
+          r_worker.worker_type_id := n_WT_CONTRACTOR;
+        end if;
+
+        -- Get the External ID using the table's package
+        r_worker.external_id      := WORKER.get_external_id();
+
+        -- The first, middle, and last names come from the cursors
+        r_worker.first_name       := r_first.first_name;
+--        r_worker.middle_name      := chr(i)||'.';
+        r_worker.middle_name      := r_middle.letter||'.';
+        r_worker.last_name        := r_last.last_name;
+
+        -- get the name using the table's package
+        r_worker.name             := WORKER.get_formatted_name(
+          r_worker.first_name, r_worker.middle_name, r_worker.last_name);
+
+        -- get a random date for a birth date
+        r_worker.birth_date       := DATE_.random(
+          to_number(to_char(SYSDATE, 'YYYY')) - 65, 
+          to_number(to_char(SYSDATE, 'YYYY')) - 18);
+
+        -- selecrt the corresponding ID value
+        if r_first.gender_code = 'F' then
+          r_worker.gender_type_id := n_G_FEMALE;
+        else
+          r_worker.gender_type_id := n_G_MALE;
+        end if;
+
+        -- Insert the row into the database
+        insert into WORKERS values r_worker;
+
+        -- keep track of the number of inserts
+        n_inserted := n_inserted + sql%rowcount;
+      end loop; -- c_middle
+--      end loop; -- for i
+      commit;  -- commit every 26 rows
+    
+    end loop; -- c_first
+    
+  end loop; -- c_last
+  -- Display the results
+  pl(to_char(n_inserted)||' rows inserted in '||
+    (to_number(to_char(SYSDATE, 'SSSSS')) - n_start)||
+    ' seconds.');
+end;
+/

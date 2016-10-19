@@ -1,0 +1,133 @@
+rem workers_forall.ins
+rem by Donald J. Bales on 2014-10-20
+rem Seed the Workers table with the top 100 names
+rem 100 last x 100 first x 26 middle = 260,000 entries
+
+set serveroutput on size 1000000;
+
+declare
+
+-- Declare a type for a PL/SQL table of last names
+TYPE last_name_table   is table of TOP_100_LAST_NAMES%ROWTYPE
+index by binary_integer;
+
+-- Declare a type for a PL/SQL table of first names
+TYPE first_name_table  is table of TOP_100_FIRST_NAMES%ROWTYPE
+index by binary_integer;
+
+-- Declare a type for a PL/SQL table of middle initials
+TYPE middle_name_table is table of A_THRU_Z%ROWTYPE
+index by binary_integer;
+
+-- Declare a type for a PL/SQL table of workers
+TYPE worker_table      is table of WORKERS%ROWTYPE 
+index by binary_integer;
+
+-- This is the number of seconds since midnight
+-- I'll use it to profile my code's performance.
+n_start                               number := 
+  to_number(to_char(SYSDATE, 'SSSSS'));
+
+-- Here, I declare four psuedo-constants to hold the
+-- ID values from the code tables, rather than look
+-- them up repeatedly during the insert process.
+n_G_FEMALE                            GENDER_TYPES.id%TYPE;
+n_G_MALE                              GENDER_TYPES.id%TYPE;
+n_WT_CONTRACTOR                       WORKER_TYPES.id%TYPE;
+n_WT_EMPLOYEE                         WORKER_TYPES.id%TYPE;
+
+-- I'll use this to keep track of the number of 
+-- rows inserted.
+n_inserted                            number := 0;
+
+-- Declare the four PL/SQL tables that replace cursors
+-- and the worker record
+t_first                               first_name_table;
+t_middle                              middle_name_table;
+t_last                                last_name_table;
+t_workers                             worker_table;
+
+begin
+  delete WORKERS;
+  commit;
+  n_start := to_number(to_char(SYSDATE, 'SSSSS'));
+
+  -- Get the ID values for the codes
+  n_G_FEMALE      := GENDER_TYPE.get_id('F');
+  n_G_MALE        := GENDER_TYPE.get_id('M');
+  n_WT_CONTRACTOR := WORKER_TYPE.get_id('C');
+  n_WT_EMPLOYEE   := WORKER_TYPE.get_id('E');
+
+  -- Bulk collect the tables into the PL/SQL tables
+  select * bulk collect into t_last   from TOP_100_LAST_NAMES;
+  select * bulk collect into t_first  from TOP_100_FIRST_NAMES;
+  select * bulk collect into t_middle from A_THRU_Z;
+  
+  -- Loop through the last names
+  for l in t_last.first..t_last.last loop
+
+    -- While looping through the last names,
+    -- loop through the first names
+    for f in t_first.first..t_first.last loop
+
+      -- While looping through the last and first names
+      -- loop through the 26 letters in the English
+      -- Alphabet in order to get middle initials
+      for m in t_middle.first..t_middle.last loop
+
+        -- Initialize the table's rows
+
+        -- Get the PK using the table's package
+        t_workers(m).id               := WORKER.get_id();
+
+        -- Flip flop from contractor to employee and back again
+        if t_workers(m).worker_type_id = n_WT_CONTRACTOR then
+          t_workers(m).worker_type_id := n_WT_EMPLOYEE;
+        else  
+          t_workers(m).worker_type_id := n_WT_CONTRACTOR;
+        end if;
+
+        -- Get the External ID using the table's package
+        t_workers(m).external_id      := WORKER.get_external_id();
+
+        -- The first, middle, and last names come from the cursors
+        t_workers(m).first_name       := t_first(f).first_name;
+        t_workers(m).middle_name      := t_middle(m).letter||'.';
+        t_workers(m).last_name        := t_last(l).last_name;
+
+        -- get the name using the table's package
+        t_workers(m).name             := WORKER.get_formatted_name(
+          t_workers(m).first_name, 
+          t_workers(m).middle_name, 
+          t_workers(m).last_name);
+
+        -- get a random date for a birth date
+        t_workers(m).birth_date       := DATE_.random(
+          to_number(to_char(SYSDATE, 'YYYY')) - 65, 
+          to_number(to_char(SYSDATE, 'YYYY')) - 18);
+
+        -- selecrt the corresponding ID value
+        if t_first(f).gender_code = 'F' then
+          t_workers(m).gender_type_id := n_G_FEMALE;
+        else
+          t_workers(m).gender_type_id := n_G_MALE;
+        end if;
+
+      end loop; -- t_middle
+
+      -- Now bulk bind the 26 insert statements
+      forall i in t_workers.first..t_workers.last 
+        insert into WORKERS values t_workers(i);
+        
+      n_inserted := n_inserted + sql%rowcount;
+    
+    end loop; -- t_first
+    
+  end loop; -- t_last
+  commit;
+  -- Display the results
+  pl(to_char(n_inserted)||' rows inserted in '||
+    (to_number(to_char(SYSDATE, 'SSSSS')) - n_start)||
+    ' seconds.');
+end;
+/

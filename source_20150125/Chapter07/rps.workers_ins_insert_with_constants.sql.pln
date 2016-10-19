@@ -1,0 +1,22 @@
+
+Explained.
+
+Plan hash value: 3139420850
+
+----------------------------------------------------------------------------------------------------
+| Id  | Operation                 | Name                   | Rows  | Bytes | Cost (%CPU)| Time     |
+----------------------------------------------------------------------------------------------------
+|   0 | INSERT STATEMENT          |                        |   260K|  4570K|   717   (1)| 00:00:01 |
+|   1 |  LOAD TABLE CONVENTIONAL  | WORKERS                |       |       |            |          |
+|   2 |   SEQUENCE                | WORKERS_ID             |       |       |            |          |
+|   3 |    MERGE JOIN CARTESIAN   |                        |   260K|  4570K|   717   (1)| 00:00:01 |
+|   4 |     MERGE JOIN CARTESIAN  |                        |  2600 | 23400 |    10   (0)| 00:00:01 |
+|   5 |      INDEX FULL SCAN      | A_THRU_Z_PK            |    26 |    52 |     1   (0)| 00:00:01 |
+|   6 |      BUFFER SORT          |                        |   100 |   700 |     9   (0)| 00:00:01 |
+|   7 |       INDEX FAST FULL SCAN| TOP_100_LAST_NAMES_PK  |   100 |   700 |     0   (0)| 00:00:01 |
+|   8 |     BUFFER SORT           |                        |   100 |   900 |   717   (1)| 00:00:01 |
+|   9 |      INDEX FAST FULL SCAN | TOP_100_FIRST_NAMES_PK |   100 |   900 |     0   (0)| 00:00:01 |
+----------------------------------------------------------------------------------------------------
+
+16 rows selected.
+

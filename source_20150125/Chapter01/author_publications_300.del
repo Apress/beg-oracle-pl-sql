@@ -1,0 +1,4 @@
+DELETE FROM author_publications
+WHERE  author_id = 300;
+
+ROLLBACK;

@@ -1,0 +1,5 @@
+CREATE TABLE author_publications (
+id                             number(38),
+author_id                      number(38),
+title                          varchar2(100),
+written_date                   date );

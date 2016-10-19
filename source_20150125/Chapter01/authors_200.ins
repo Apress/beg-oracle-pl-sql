@@ -1,0 +1,12 @@
+INSERT INTO authors (
+       id,
+       name,
+       birth_date,
+       gender )
+SELECT 200,
+       'Chris J Date',
+       to_date('19410101', 'YYYYMMDD'),
+       'MALE' 
+from   DUAL;
+
+COMMIT;

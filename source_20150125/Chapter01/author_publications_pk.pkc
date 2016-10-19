@@ -1,0 +1,5 @@
+ALTER TABLE author_publications ADD
+CONSTRAINT  author_publications_pk
+PRIMARY KEY (
+id);
+

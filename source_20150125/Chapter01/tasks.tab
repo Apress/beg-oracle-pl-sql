@@ -1,0 +1,33 @@
+rem tasks.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold task definitions
+
+-- drop table TASKS;
+create table TASKS (
+id                             number(38)                     not null,
+name                           varchar2(80)                   not null,
+narrative                      varchar2(2000)                 not null,
+hazard_level_type_id           number(38)                     not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+-- drop sequence TASKS_ID;
+create sequence TASKS_ID
+start with 1;
+
+alter  table TASKS add
+constraint   TASKS_PK
+primary key ( id )
+using index;
+
+alter  table TASKS add
+constraint   TASKS_UK
+unique ( name )
+using index;
+
+alter  table TASKS add
+constraint   TASKS_FK1
+foreign key ( hazard_level_type_id )
+references HAZARD_LEVEL_TYPES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'TASKS');

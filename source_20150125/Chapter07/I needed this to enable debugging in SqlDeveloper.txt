@@ -1,0 +1,39 @@
+/*
+begin
+  DBMS_NETWORK_ACL_ADMIN.create_acl (
+    acl          => 'remote_debugger.xml', 
+    description  => 'Remote Debugging ACL',
+    principal    => 'OPS',
+    is_grant     => TRUE, 
+    privilege    => 'connect',
+    start_date   => SYSTIMESTAMP,
+    end_date     => NULL);
+
+  commit;
+end;
+
+
+begin
+  DBMS_NETWORK_ACL_ADMIN.assign_acl (
+    acl          => 'remote_debugger.xml', 
+    host        => '192.168.2.2', 
+    lower_port  => '80',
+    upper_port  => '99999'); 
+
+  commit;
+end;
+
+*/
+
+-- I needed this to enable debugging in SqlDeveloper
+begin
+  DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE(
+    host         => '192.168.2.2',
+    lower_port   => null,
+    upper_port   => null,
+    ace => xs$ace_type(privilege_list => xs$name_list('jdwp'),
+                       principal_name => 'OPS',
+                       principal_type => xs_acl.ptype_db));
+  commit;                     
+end;
+/

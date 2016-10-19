@@ -1,0 +1,5 @@
+UPDATE author_publications
+SET    title = upper(title)
+where  title <> upper(title);
+
+COMMIT;

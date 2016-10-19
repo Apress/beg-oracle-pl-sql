@@ -1,0 +1,573 @@
+SQL> 
+SQL> @ddl_.pks
+SQL> create or replace package	    DDL_ as
+  2  /*
+  3  ddl.pks
+  4  by Donald J. Bales on 2014-10-20
+  5  Error-less DDL commands
+  6  
+  7  Some database objects have a create or replace syntax.  While you're developing
+  8  that can be quite handy because it allows you to easily create a re-runnable
+  9  script.  This package adds a cuople of errorless drop commands that also make
+ 10  it easier to create a re-runnable script.
+ 11  */
+ 12  
+ 13  
+ 14  -- Drop the specified sequence if it exists.
+ 15  -- If it does not, report nothing, otherwise
+ 16  -- report the SQLERRM
+ 17  PROCEDURE dseq(
+ 18  aiv_sequence_name		    in	   varchar2);
+ 19  
+ 20  
+ 21  -- Drop the specified table if it exists.
+ 22  -- If it does not, report nothing, otherwise
+ 23  -- report the SQLERRM
+ 24  PROCEDURE dtab(
+ 25  aiv_table_name		    in	   varchar2);
+ 26  
+ 27  
+ 28  -- Drop the specified trigger if it exists.
+ 29  -- If it does not, report nothing, otherwise
+ 30  -- report the SQLERRM
+ 31  PROCEDURE dtrg(
+ 32  aiv_trigger_name		    in	   varchar2);
+ 33  
+ 34  
+ 35  end DDL_;
+ 36  /
+
+Package created.
+
+SQL> @se.sql
+SQL> show errors
+No errors.
+SQL> @ddl_.pkb
+SQL> create or replace package body DDL_ as
+  2  /*
+  3  ddl.pkb
+  4  by Donald J. Bales on 2014-10-20
+  5  Error-less DDL commands
+  6  */
+  7  
+  8  
+  9  PROCEDURE dseq(
+ 10  aiv_sequence_name		    in	   varchar2) is
+ 11  
+ 12  v_ddl				   varchar2(500);
+ 13  
+ 14  begin
+ 15    begin
+ 16  	 v_ddl := 'drop sequence '||aiv_sequence_name;
+ 17  
+ 18  	 execute immediate v_ddl;
+ 19  
+ 20  	 SYS.DBMS_OUTPUT.put_line('Sequence dropped.');
+ 21    exception
+ 22  	 when OTHERS then
+ 23  	   if SQLCODE = -2289 then
+ 24  	     SYS.DBMS_OUTPUT.put_line(substr(SQLERRM, instr(SQLERRM, ': ') + 2, 255));
+ 25  	   else
+ 26  	     SYS.DBMS_OUTPUT.put_line(SQLERRM);
+ 27  	   end if;
+ 28    end;
+ 29  end dseq;
+ 30  
+ 31  
+ 32  PROCEDURE dtab(
+ 33  aiv_table_name		    in	   varchar2) is
+ 34  
+ 35  v_ddl				   varchar2(500);
+ 36  
+ 37  begin
+ 38    begin
+ 39  	 v_ddl := 'drop table '||aiv_table_name;
+ 40  
+ 41  	 execute immediate v_ddl;
+ 42  
+ 43  	 SYS.DBMS_OUTPUT.put_line('Table dropped.');
+ 44    exception
+ 45  	 when OTHERS then
+ 46  	   if SQLCODE = -942 then
+ 47  	     SYS.DBMS_OUTPUT.put_line(substr(SQLERRM, instr(SQLERRM, ': ') + 2, 255));
+ 48  	   else
+ 49  	     SYS.DBMS_OUTPUT.put_line(SQLERRM);
+ 50  	   end if;
+ 51    end;
+ 52  end dtab;
+ 53  
+ 54  
+ 55  PROCEDURE dtrg(
+ 56  aiv_trigger_name		    in	   varchar2) is
+ 57  
+ 58  v_ddl				   varchar2(500);
+ 59  
+ 60  begin
+ 61    begin
+ 62  	 v_ddl := 'drop trigger '||aiv_trigger_name;
+ 63  
+ 64  	 execute immediate v_ddl;
+ 65  
+ 66  	 SYS.DBMS_OUTPUT.put_line('Trigger dropped.');
+ 67    exception
+ 68  	 when OTHERS then
+ 69  	   if SQLCODE = -4080 then
+ 70  	     SYS.DBMS_OUTPUT.put_line(substr(SQLERRM, instr(SQLERRM, ': ') + 2, 255));
+ 71  	   else
+ 72  	     SYS.DBMS_OUTPUT.put_line(SQLERRM);
+ 73  	   end if;
+ 74    end;
+ 75  end dtrg;
+ 76  
+ 77  
+ 78  end DDL_;
+ 79  /
+
+Package body created.
+
+SQL> @be.sql
+SQL> show errors
+No errors.
+SQL> @pl.prc
+SQL> create or replace PROCEDURE pl(
+  2  aiv_text			    in	   varchar2 ) is
+  3  /*
+  4  pl.prc
+  5  by Donald J. Bales on 2014-10-20
+  6  A wrapper procedure for SYS.DBMS_OUTPUT.put_line()
+  7  for the lazy typist.
+  8  */
+  9  
+ 10  begin
+ 11    SYS.DBMS_OUTPUT.put_line(aiv_text);
+ 12  end pl;
+ 13  /
+
+Procedure created.
+
+SQL> @pe.sql pl
+SQL> show errors
+No errors.
+SQL> 
+SQL> @to_mmsddsyyyy_or_null.fun
+SQL> create or replace FUNCTION to_mmsddsyyyy_or_null (
+  2  aiv_date			    in	   varchar2 )
+  3  return				   date is
+  4  /*
+  5  to_mmsddsyyyy_or_null.fun
+  6  by Donald J. Bales on 2014-10-20
+  7  An errorless to_date( ) method
+  8  */
+  9  begin
+ 10    return to_date(aiv_date, 'MM/DD/YYYY');
+ 11  exception
+ 12    /*
+ 13    There are too many possible errors, for example:
+ 14  	 ORA-01830: date format picture ends before
+ 15  		    converting entire input string
+ 16  	 ORA-01843: not a valid month
+ 17  	 ORA-01847: day of month must be between 1
+ 18  		    and last day of month
+ 19  	 ORA-01858: a non-numeric character was found
+ 20  		    where a numeric was expected
+ 21    so I used the exception OTHERS
+ 22    */
+ 23    when OTHERS then
+ 24  	 return NULL;
+ 25  end to_mmsddsyyyy_or_null;
+ 26  /
+
+Function created.
+
+SQL> @fe.sql to_mmsddsyyyy_or_null;
+SQL> show errors
+No errors.
+SQL> @to_number_or_null.fun
+SQL> create or replace FUNCTION to_number_or_null (
+  2  aiv_number 		    in	   varchar2 )
+  3  return				   number is
+  4  /*
+  5  to_number_or_null.fun
+  6  by Donald J. Bales on 2014-10-20
+  7  An errorless to_number( ) method
+  8  */
+  9  begin
+ 10    return to_number(aiv_number);
+ 11  exception
+ 12    when INVALID_NUMBER then
+ 13  	 return NULL;
+ 14  end to_number_or_null;
+ 15  /
+
+Function created.
+
+SQL> @fe.sql to_number_or_null;
+SQL> show errors
+No errors.
+SQL> 
+SQL> @pl.prc
+SQL> create or replace PROCEDURE pl(
+  2  aiv_text			    in	   varchar2 ) is
+  3  /*
+  4  pl.prc
+  5  by Donald J. Bales on 2014-10-20
+  6  A wrapper procedure for SYS.DBMS_OUTPUT.put_line()
+  7  for the lazy typist.
+  8  */
+  9  
+ 10  begin
+ 11    SYS.DBMS_OUTPUT.put_line(aiv_text);
+ 12  end pl;
+ 13  /
+
+Procedure created.
+
+SQL> @pe.sql pl
+SQL> show errors
+No errors.
+SQL> @wait.prc
+SQL> create or replace PROCEDURE wait(
+  2  ain_seconds		    in	   number) is
+  3  /*
+  4  wait.prc
+  5  by Donald J. Bales on 2014-10-20
+  6  Wrapper for SYS.DBMS_LOCK.sleep()
+  7  */
+  8  begin
+  9   SYS.DBMS_LOCK.sleep(ain_seconds);
+ 10  end wait;
+ 11  /
+
+Procedure created.
+
+SQL> @pe.sql wait
+SQL> show errors
+No errors.
+SQL> 
+SQL> @date_.pks
+SQL> create or replace package	    DATE_ as
+  2  /*
+  3  date_.pks
+  4  by Donald J. Bales on 2014-10-20
+  5  Additional DATE data type methods.
+  6  */
+  7  
+  8  -- The maximum and minimum dates values.
+  9  
+ 10  d_MAX			  constant date :=
+ 11    to_date('99991231235959', 'YYYYMMDDHH24MISS');
+ 12  d_MIN			  constant date :=
+ 13    to_date('-47120101', 'SYYYYMMDD');
+ 14  
+ 15  
+ 16  -- Returns the specified date with the time set to 23:59:59, therefore,
+ 17  -- the end of the day.
+ 18  
+ 19  FUNCTION end_of_day(
+ 20  aid_date			    in	   date )
+ 21  return				   date;
+ 22  
+ 23  
+ 24  -- Returns constant d_MAX.  This is useful in SQL statements where the
+ 25  -- constant DATE_.d_MAX is not accessible.
+ 26  
+ 27  FUNCTION get_max
+ 28  return				   date;
+ 29  
+ 30  
+ 31  -- Returns constant d_MIN.  This is useful in SQL statements where the
+ 32  -- constant DATE_.d_MIN is not accessible.
+ 33  
+ 34  FUNCTION get_min
+ 35  return				   date;
+ 36  
+ 37  
+ 38  -- Text-based help for this package.  "set serveroutput on" in SQL*Plus.
+ 39  
+ 40  PROCEDURE help;
+ 41  
+ 42  
+ 43  -- Returns a randomly generated date that exists between the years specified.
+ 44  
+ 45  FUNCTION random(
+ 46  ain_starting_year		    in	   number,
+ 47  ain_ending_year		    in	   number )
+ 48  return				   date;
+ 49  
+ 50  
+ 51  -- Returns the specified date with the time set to 00:00:00, therefore, the
+ 52  -- start of the day.
+ 53  
+ 54  FUNCTION start_of_day(
+ 55  aid_date			    in	   date )
+ 56  return				   date;
+ 57  
+ 58  
+ 59  -- Test unit for this package.
+ 60  
+ 61  PROCEDURE test;
+ 62  
+ 63  
+ 64  end DATE_;
+ 65  /
+
+Package created.
+
+SQL> @se.sql DATE_
+SQL> show errors
+No errors.
+SQL> @number_.pks
+SQL> create or replace package NUMBER_ as
+  2  /*
+  3  number_.pks
+  4  by Donald J. Bales on 2014-10-20
+  5  A utility package for the data type NUMBER
+  6  */
+  7  
+  8  /*
+  9  Returns the passed varchar2 as a number if it represents a number,
+ 10  otherwise, it returns NULL
+ 11  */
+ 12  FUNCTION to_number_or_null (
+ 13  aiv_number 		    in	   varchar2 )
+ 14  return				   number;
+ 15  
+ 16  end NUMBER_;
+ 17  /
+
+Package created.
+
+SQL> @se.sql
+SQL> show errors
+No errors.
+SQL> 
+SQL> @date_.pkb
+SQL> create or replace package body DATE_ as
+  2  /*
+  3  date_.pkb
+  4  by Donald J. Bales on 2014-10-20
+  5  Additional DATE data type methods
+  6  */
+  7  
+  8  
+  9  FUNCTION end_of_day(
+ 10  aid_date			    in	   date )
+ 11  return				   date is
+ 12  
+ 13  begin
+ 14   return to_date(to_char(aid_date, 'SYYYYMMDD')||'235959',
+ 15  	'SYYYYMMDDHH24MISS');
+ 16  end end_of_day;
+ 17  
+ 18  
+ 19  FUNCTION get_max
+ 20  return				   date is
+ 21  
+ 22  begin
+ 23   return d_MAX;
+ 24  end get_max;
+ 25  
+ 26  
+ 27  FUNCTION get_min
+ 28  return				   date is
+ 29  
+ 30  begin
+ 31   return d_MIN;
+ 32  end get_min;
+ 33  
+ 34  
+ 35  FUNCTION random(
+ 36  ain_starting_year		    in	   number,
+ 37  ain_ending_year		    in	   number )
+ 38  return				   date is
+ 39  
+ 40  d_random				   date;
+ 41  n_day				   number;
+ 42  n_month				   number;
+ 43  n_year				   number;
+ 44  
+ 45  begin
+ 46    n_year	 := round(DBMS_RANDOM.value(
+ 47  	 ain_starting_year, ain_ending_year), 0);
+ 48    --pl('n_year='||n_year);
+ 49    loop
+ 50  	 n_month := round(DBMS_RANDOM.value(1, 12), 0);
+ 51  	 --pl('n_month='||n_month);
+ 52  	 n_day	 := round(DBMS_RANDOM.value(1, 31), 0);
+ 53  	 --pl('n_day='||n_day);
+ 54  	 begin
+ 55  	   d_random := to_date(lpad(to_char(n_year),  4, '0')||
+ 56  			       lpad(to_char(n_month), 2, '0')||
+ 57  			       lpad(to_char(n_day),   2, '0'),
+ 58  			       'YYYYMMDD');
+ 59  	   exit;
+ 60  	 exception
+ 61  	   when OTHERS then
+ 62  	     if SQLCODE <> -1839 then
+ 63  	       pl(SQLERRM);
+ 64  	     --else
+ 65  	     --  pl('29-31');
+ 66  	     end if;
+ 67  	 end;
+ 68    end loop;
+ 69    return d_random;
+ 70  end random;
+ 71  
+ 72  
+ 73  FUNCTION start_of_day(
+ 74  aid_date			    in	   date )
+ 75  return				   date is
+ 76  
+ 77  begin
+ 78   return trunc(aid_date);
+ 79  end start_of_day;
+ 80  
+ 81  
+ 82  -- Write up the help text here in this help method
+ 83  PROCEDURE help is
+ 84  
+ 85  begin
+ 86  --   1234567890123456789012345678901234567890123456789012345678901234567890
+ 87    pl('============================== PACKAGE ==============================');
+ 88    pl(chr(9));
+ 89    pl('DATE_');
+ 90    pl(chr(9));
+ 91    pl('------------------------------ CONSTANTS ----------------------------');
+ 92    pl(chr(9));
+ 93    pl('d_MAX');
+ 94    pl(chr(9)||'Represents the maximum value for the DATE data type.');
+ 95    pl('d_MIN');
+ 96    pl(chr(9)||'Represents the minimum value for the DATE data type.');
+ 97    pl(chr(9));
+ 98    pl('------------------------------ FUNCTIONS ----------------------------');
+ 99    pl(chr(9));
+100    pl('DATE_.end_of_day(');
+101    pl('aid_date			  in	 date)');
+102    pl('return				 date;');
+103    pl(chr(9)||'Returns the passed date with the time portion set to the end ');
+104    pl(chr(9)||'of the day:');
+105    pl(chr(9)||'23:59:59 (HH24:MI:SS).');
+106    pl(chr(9));
+107    pl('DATE_.get_max( )');
+108    pl('return				 date;');
+109    pl(chr(9)||'Returns the constant DATE_.d_MAX.');
+110    pl(chr(9));
+111    pl('DATE_.get_mim( )');
+112    pl('return				 date;');
+113    pl(chr(9)||'Returns the constant DATE_.d_MIN.');
+114    pl(chr(9));
+115    pl('DATE_.random(');
+116    pl('ain_starting_year		  in	 number,');
+117    pl('ain_ending_year		  in	 number)');
+118    pl('return				 date;');
+119    pl(chr(9)||'Returns a random date that exists between the specified years.');
+120    pl(chr(9));
+121    pl('DATE_.start_of_day(');
+122    pl('aid_date			  in	 date)');
+123    pl('return				 date;');
+124    pl(chr(9)||'Returns the passed date with the time portion set to the start');
+125    pl(chr(9)||'of the day:');
+126    pl(chr(9)||'00:00:00 (HH24:MI:SS).');
+127    pl(chr(9));
+128    pl('------------------------------ PROCEDURES ----------------------------');
+129    pl(chr(9));
+130    pl('DATE_.help( );');
+131    pl(chr(9)||'Displays this help text if set serveroutput is on.');
+132    pl(chr(9));
+133    pl('DATE_.test( );');
+134    pl(chr(9)||'Built-in test unit.	It will report success or error for each');
+135    pl(chr(9)||'test if set');
+136    pl(chr(9)||'serveroutput is on.');
+137    pl(chr(9));
+138  end help;
+139  
+140  
+141  PROCEDURE test is
+142  
+143  d_date				   date;
+144  
+145  begin
+146    pl('============================== PACKAGE ===============================');
+147    pl(chr(9));
+148    pl('DATE_');
+149    pl(chr(9));
+150    pl('1. Testing constants d_MIN and d_MAX');
+151    if d_MIN < d_MAX then
+152  	pl('SUCCESS');
+153    else
+154  	pl('ERROR: d_MIN is not less than d_MAX');
+155    end if;
+156  
+157    pl('2. Testing end_of_day()');
+158    if to_char(end_of_day(SYSDATE), 'HH24MISS') = '235959' then
+159  	pl('SUCCESS');
+160    else
+161  	pl('ERROR: end_of_day is not 23:59:59');
+162    end if;
+163  
+164    pl('3. Testing get_max()');
+165    if get_max() = d_MAX then
+166  	pl('SUCCESS');
+167    else
+168  	pl('ERROR: get_max() is not equal to d_MAX');
+169    end if;
+170  
+171    pl('4. Testing get_min()');
+172    if get_min() = d_MIN then
+173  	pl('SUCCESS');
+174    else
+175  	pl('ERROR: get_min() is not equal to d_MIN');
+176    end if;
+177  
+178    pl('5. Testing random() 1000 times');
+179    for i in 1..1000 loop
+180  	 d_date := random(1, 9999);
+181  	 --pl(to_char(d_date, 'YYYY-MM-DD HH24:MI:SS'));
+182    end loop;
+183    pl('SUCCESS');
+184  
+185    pl('6. Testing start_of_day()');
+186    if to_char(start_of_day(SYSDATE), 'HH24MISS') = '000000' then
+187  	pl('SUCCESS');
+188    else
+189  	pl('ERROR: start_of_day is not 00:00:00');
+190    end if;
+191  end test;
+192  
+193  
+194  end DATE_;
+195  /
+
+Package body created.
+
+SQL> @be.sql DATE_
+SQL> show errors
+No errors.
+SQL> @number_.pkb
+SQL> create or replace package body NUMBER_ as
+  2  /*
+  3  number_.pkb
+  4  by Donald J. Bales on 2014-10-20
+  5  A utility package for the data type NUMBER
+  6  */
+  7  
+  8  FUNCTION to_number_or_null (
+  9  aiv_number 		    in	   varchar2 )
+ 10  return				   number is
+ 11  begin
+ 12    return to_number(aiv_number);
+ 13  exception
+ 14    when OTHERS then
+ 15  	 return NULL;
+ 16  end to_number_or_null;
+ 17  
+ 18  end NUMBER_;
+ 19  /
+
+Package body created.
+
+SQL> @be.sql
+SQL> show errors
+No errors.
+SQL> 
+SQL> spool off;

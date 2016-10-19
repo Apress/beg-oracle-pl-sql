@@ -1,0 +1,74 @@
+rem workers.ins
+rem by Donald J. Bales on 2014-10-20
+rem Seed the Worker table with the top 100 names
+rem 100 last x 100 first x 26 middle = 260,000 entries
+
+set serveroutput on size 1000000;
+
+declare
+
+-- This is the number of seconds since midnight
+-- I'll use it to profile my code's performance.
+n_start                               number := 
+  to_number(to_char(SYSDATE, 'SSSSS'));
+
+-- Here, I declare four psuedo-constants to hold the
+-- ID values from the code tables, rather than look
+-- them up repeatedly during the insert process.
+n_G_FEMALE                            GENDER_TYPES.id%TYPE;
+n_G_MALE                              GENDER_TYPES.id%TYPE;
+n_WT_CONTRACTOR                       WORKER_TYPES.id%TYPE;
+n_WT_EMPLOYEE                         WORKER_TYPES.id%TYPE;
+
+-- I'll use this to keep track of the number of 
+-- rows inserted.
+n_inserted                            number := 0;
+
+begin
+  delete WORKERS;
+  commit;
+  n_start := to_number(to_char(SYSDATE, 'SSSSS'));
+
+  -- Get the ID values for the codes
+  n_G_FEMALE      := GENDER_TYPE.get_id('F');
+  n_G_MALE        := GENDER_TYPE.get_id('M');
+  n_WT_CONTRACTOR := WORKER_TYPE.get_id('C');
+  n_WT_EMPLOYEE   := WORKER_TYPE.get_id('E');
+
+  -- Use an INSERT INTO SELECT SQL statement
+  insert into WORKERS (
+         id,      
+         worker_type_id,
+         external_id,    
+         first_name,     
+         middle_name,    
+         last_name,      
+         name,           
+         birth_date,     
+         gender_type_id)
+  select WORKERS_ID.nextval,      
+         decode(mod(WORKERS_ID.currval, 2), 
+           0, n_WT_EMPLOYEE, n_WT_CONTRACTOR),
+         lpad(to_char(EXTERNAL_ID_SEQ.nextval), 9, '0'),
+         first_name,     
+         letter||'.',    
+         last_name,
+         WORKER.get_formatted_name(
+           first_name, letter||'.', last_name),          
+         DATE_.random(
+           to_number(to_char(SYSDATE, 'YYYY')) - 65, 
+           to_number(to_char(SYSDATE, 'YYYY')) - 18),     
+         decode(gender_code, 'F', n_G_FEMALE, n_G_MALE)
+  from   TOP_100_LAST_NAMES,
+         TOP_100_FIRST_NAMES,
+         A_THRU_Z;
+
+  n_inserted := n_inserted + sql%rowcount;
+
+  commit;
+       
+  pl(to_char(n_inserted)||' rows inserted in '||
+    (to_number(to_char(SYSDATE, 'SSSSS')) - n_start)||
+    ' seconds.');
+end;
+/

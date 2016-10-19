@@ -1,0 +1,40 @@
+rem work_assignments.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold work assignments
+
+--drop   table WORK_ASSIGNMENTS;
+create table WORK_ASSIGNMENTS (
+id                             number(38)                     not null,
+worker_id                      number(38)                     not null,
+work_id                        number(38)                     not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+--drop   sequence WORK_ASSIGNMENTS_ID;
+create sequence WORK_ASSIGNMENTS_ID
+start with 1;
+
+alter  table WORK_ASSIGNMENTS add
+constraint   WORK_ASSIGNMENTS_PK
+primary key ( 
+id )
+using index;
+
+alter  table WORK_ASSIGNMENTS add
+constraint   WORK_ASSIGNMENTS_UK
+unique ( 
+worker_id,
+active_date )
+using index;
+
+alter  table WORK_ASSIGNMENTS add
+constraint   WORK_ASSIGNMENTS_FK1
+foreign key   ( worker_id )
+references   WORKERS ( id );
+
+alter  table WORK_ASSIGNMENTS add
+constraint   WORK_ASSIGNMENTS_FK2
+foreign key   ( work_id )
+references   WORKS ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORK_ASSIGNMENTS');

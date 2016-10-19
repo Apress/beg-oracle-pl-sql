@@ -1,0 +1,19 @@
+rem top_100_first_names.tab
+rem by Donald J. Bales on 2014-10-20
+rem Top 100 first names from www.namestatistics.com
+
+exec ddl_.dtab('TOP_100_FIRST_NAMES');
+create table    TOP_100_FIRST_NAMES (
+first_name                     varchar2(30)                   not null,
+gender_code                    varchar2(1)                    not null);
+
+alter  table    TOP_100_FIRST_NAMES add
+constraint      TOP_100_FIRST_NAMES_PK
+primary key (
+first_name,
+gender_code )
+using index;
+
+grant select on TOP_100_FIRST_NAMES to public;
+
+@top_100_first_names.ins

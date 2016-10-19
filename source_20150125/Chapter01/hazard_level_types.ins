@@ -1,0 +1,13 @@
+rem hazard_level_types.ins
+rem by Donald J. Bales on 2014-10-20
+rem Add code values to hazard levels
+
+insert into HAZARD_LEVEL_TYPES ( id, magnitude, code, description ) values ( HAZARD_LEVEL_TYPES_ID.nextval,  0, 'N', 'None' );
+insert into HAZARD_LEVEL_TYPES ( id, magnitude, code, description ) values ( HAZARD_LEVEL_TYPES_ID.nextval,  2, 'M', 'May Be Bad' );
+insert into HAZARD_LEVEL_TYPES ( id, magnitude, code, description ) values ( HAZARD_LEVEL_TYPES_ID.nextval,  4, 'B', 'Bad' );
+insert into HAZARD_LEVEL_TYPES ( id, magnitude, code, description ) values ( HAZARD_LEVEL_TYPES_ID.nextval,  6, 'U', 'Unknown' );
+insert into HAZARD_LEVEL_TYPES ( id, magnitude, code, description ) values ( HAZARD_LEVEL_TYPES_ID.nextval,  8, 'R', 'Really Bad' );
+insert into HAZARD_LEVEL_TYPES ( id, magnitude, code, description ) values ( HAZARD_LEVEL_TYPES_ID.nextval, 10, 'W', 'Wholly Crap (as not to offend anyone)' );
+commit;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'HAZARD_LEVEL_TYPES');

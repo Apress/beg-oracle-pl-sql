@@ -1,0 +1,6 @@
+       and    d.runid       = ops.debug.sql ) t
+                              *
+ERROR at line 33:
+ORA-00904: "OPS"."DEBUG"."SQL": invalid identifier
+
+

@@ -1,0 +1,99 @@
+
+UNIT_NAME     AVG_TIME OCCUR LINE# TEXT
+------------- -------- ----- ----- ----------------------------------------
+<anonymous>      14497     2     1
+<anonymous>      56766    18     1
+<anonymous>          0     0     1
+<anonymous>      88482     2     1
+<anonymous>          0     0     1
+<anonymous>      60987     1     5
+<anonymous>          0     0     6
+<anonymous>        999     1     7
+<anonymous>        818    11     8
+<anonymous>       7698    10     9
+<anonymous>       6999    10    10
+<anonymous>      11898    10    11
+<anonymous>      46990     1    11
+<anonymous>        999     1    12
+<anonymous>        999     1    13
+<anonymous>       1999     1    16
+<anonymous>       1999     1    18
+<anonymous>        364    11    19
+<anonymous>       2100    10    20
+<anonymous>       1200    10    22
+<anonymous>          0     1    24
+<anonymous>       1999     1    25
+DEBUG                0     0     9 STATIC FUNCTION get_id
+DEBUG                0     0    14 begin
+DEBUG                0     0    15 select DEBUGS_ID.nextval
+DEBUG                0     0    19 return n_id;
+DEBUG                0     0    20 end get_id;
+DEBUG                0     0    23 CONSTRUCTOR FUNCTION debug(
+DEBUG                0     0    27 begin
+DEBUG                0     0    28 pl('debug(zero param)');
+DEBUG                0     0    29 self.id                := NULL;
+DEBUG                0     0    30 self.text              := NULL;
+DEBUG                0     0    31 self.unique_session_id := NULL;
+DEBUG                0     0    32 self.insert_user       := NULL;
+DEBUG                0     0    33 self.insert_date       := NULL;
+DEBUG                0     0    35 return;
+DEBUG                0     0    36 end debug;
+DEBUG             3174   132    39 CONSTRUCTOR FUNCTION debug(
+DEBUG                0   132    45 begin
+DEBUG             8029   132    46 pl('debug(two params)');
+DEBUG             1469   132    47 self.id                := ain_id;
+DEBUG              477   132    48 self.text              := aiv_text;
+DEBUG             7604   132    49 self.unique_session_id := SYS.DBMS_SESSI
+DEBUG             7445   132    50 self.insert_user       := USER;
+DEBUG             2197   132    51 self.insert_date       := SYSDATE;
+DEBUG             6037   132    53 return;
+DEBUG             1833   132    54 end debug;
+DEBUG                0     0    60 CONSTRUCTOR FUNCTION debug(
+DEBUG                0     0    69 begin
+DEBUG                0     0    70 pl('debug(five params)');
+DEBUG                0     0    71 self.id                := id;
+DEBUG                0     0    72 self.text              := text;
+DEBUG                0     0    73 self.unique_session_id := unique_session
+DEBUG                0     0    74 self.insert_user       := insert_user;
+DEBUG                0     0    75 self.insert_date       := insert_date;
+DEBUG                0     0    77 return;
+DEBUG                0     0    78 end debug;
+DEBUG             2636    22    81 STATIC PROCEDURE set_text(
+DEBUG             5726    22    89 begin
+DEBUG             5453    22    90 v_text := substrb(aiv_program_unit||': '
+DEBUG           368832    22    92 insert into DEBUGS
+DEBUG           141880    22    97 commit;
+DEBUG             4226    22    98 end set_text;
+DEBUG                0     0   101 MAP MEMBER FUNCTION to_map
+DEBUG                0     0   104 begin
+DEBUG                0     0   105 return id;
+DEBUG                0     0   106 end to_map;
+DEBUGGER             0     0     1 package body DEBUGGER as
+DEBUGGER          1999     1    16 PROCEDURE disable(
+DEBUGGER             0     1    21 begin
+DEBUGGER          2999     1    22 v_program_unit := upper(aiv_program_unit
+DEBUGGER          1999     1    24 if t_program_unit.exists(v_program_unit)
+DEBUGGER          4998     1    25 t_program_unit.delete(v_program_unit);
+DEBUGGER             0     1    26 end if;
+DEBUGGER           999     1    27 end disable;
+DEBUGGER          3999     1    30 PROCEDURE enable(
+DEBUGGER             0     1    35 begin
+DEBUGGER          8998     1    36 v_program_unit := upper(aiv_program_unit
+DEBUGGER          2999     1    38 if not t_program_unit.exists(v_program_u
+DEBUGGER          3999     1    39 t_program_unit(v_program_unit) := NULL;
+DEBUGGER             0     1    40 end if;
+DEBUGGER           999     1    41 end enable;
+DEBUGGER          2636    44    44 PROCEDURE set_text(
+DEBUGGER             0    44    50 begin
+DEBUGGER          2931    44    51 v_program_unit := upper(aiv_program_unit
+DEBUGGER          2363    44    53 if t_program_unit.exists(v_program_unit)
+DEBUGGER          3726    22    54 DEBUG.set_text(v_program_unit, aiv_text)
+DEBUGGER             0    44    55 end if;
+DEBUGGER           500    44    56 end set_text;
+DEBUGGER             0     0    59 end DEBUGGER;
+PL                   0     0     1 PROCEDURE pl(
+PL                6953   133    11 SYS.DBMS_OUTPUT.put_line(aiv_text);
+PL                 729   133    12 end pl;
+
+93 rows selected.
+

@@ -1,0 +1,29 @@
+rem workplace_types.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold workplace types
+
+--drop   table WORKPLACE_TYPES;
+create table WORKPLACE_TYPES (
+id                             number(38)                     not null,
+logical_indicator              number(1)     default 0        not null,
+physical_indicator             number(1)     default 0        not null,
+code                           varchar2(30)                   not null,
+description                    varchar2(80)                   not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+--drop   sequence WORKPLACE_TYPES_ID;
+create sequence WORKPLACE_TYPES_ID
+start with 1;
+
+alter  table WORKPLACE_TYPES add
+constraint   WORKPLACE_TYPES_PK
+primary key ( id )
+using index;
+
+alter  table WORKPLACE_TYPES add
+constraint   WORKPLACE_TYPES_UK
+unique ( code )
+using index;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORKPLACE_TYPES');

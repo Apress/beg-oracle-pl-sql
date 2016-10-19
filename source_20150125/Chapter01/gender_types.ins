@@ -1,0 +1,10 @@
+rem gender_types.ins
+rem by Donald J. Bales on 2010-10-20
+rem Add code values to the genders table
+
+insert into GENDER_TYPES ( id, code, description ) values ( GENDER_TYPES_ID.nextval, 'F', 'Female' );
+insert into GENDER_TYPES ( id, code, description ) values ( GENDER_TYPES_ID.nextval, 'M', 'Male' );
+insert into GENDER_TYPES ( id, code, description ) values ( GENDER_TYPES_ID.nextval, 'U', 'Unknown' );
+commit;
+
+SYS.DBMS_STATS.gather_table_stats(USER, 'GENDER_TYPES');

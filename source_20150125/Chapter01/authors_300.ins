@@ -1,0 +1,16 @@
+INSERT INTO authors (
+       id,
+       name,
+       birth_date,
+       gender )
+SELECT 300,
+       'Hugh Darwen',
+       to_date('19430101', 'YYYYMMDD'),
+       'MALE'
+from   dual d
+where not exists (
+  SELECT 1
+  FROM   authors x
+  WHERE  x.id = '300' );
+ 
+COMMIT;

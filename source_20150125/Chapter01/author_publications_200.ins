@@ -1,0 +1,47 @@
+INSERT INTO author_publications (
+       id,
+       author_id,
+       title,
+       written_date )
+VALUES (
+       30,
+       200,
+       'An introduction to Database Systems',
+       to_date('20030101', 'YYYYMMDD') );
+
+INSERT INTO author_publications (
+       id,
+       author_id,
+       title,
+       written_date )
+VALUES (
+       40,
+       200,
+       'The Third Manifesto',
+       to_date('20000101', 'YYYYMMDD') );
+
+INSERT INTO author_publications (
+       id,
+       author_id,
+       title,
+       written_date )
+VALUES (
+       50,
+       200,
+       'Temporal Data and the Relational Model',
+       to_date('20020101', 'YYYYMMDD') );
+
+INSERT INTO author_publications (
+       id,
+       author_id,
+       title,
+       written_date )
+VALUES (
+       60,
+       200,
+       'Database in Depth: Relational Theory for Practitioners',
+       to_date('20050101', 'YYYYMMDD') );
+
+COMMIT;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'AUTHOR_PUBLICATIONS');

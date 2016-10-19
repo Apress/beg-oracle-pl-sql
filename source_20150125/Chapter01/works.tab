@@ -1,0 +1,30 @@
+rem works.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold work descriptions
+
+--drop   table WORKS;
+create table WORKS (
+id                             number(38)                     not null,
+code                           varchar2(30)                   not null,
+name                           varchar2(80)                   not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+--drop   sequence WORKS_ID;
+create sequence WORKS_ID
+start with 1;
+
+alter  table WORKS add
+constraint   WORKS_PK
+primary key ( 
+id )
+using index;
+
+alter  table WORKS add
+constraint   WORKS_UK
+unique ( 
+code,
+name )
+using index;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORKS');

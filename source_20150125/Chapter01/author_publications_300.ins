@@ -1,0 +1,35 @@
+INSERT INTO author_publications (
+       id,
+       author_id,
+       title,
+       written_date )
+SELECT 70,
+       300,
+       'The Third Manifesto',
+       to_date('20000101', 'YYYYMMDD')
+FROM   dual
+where not exists (
+  SELECT 1
+  FROM   author_publications x
+  WHERE  x.author_id = '300'
+  AND    x.title     = 'The Third Manifesto' );
+  
+INSERT INTO author_publications (
+       id,
+       author_id,
+       title,
+       written_date )
+SELECT 80,
+       300,
+       'Temporal Data and the Relational Model',
+       to_date('20020101', 'YYYYMMDD')
+FROM   dual
+where not exists (
+  SELECT 1
+  FROM   author_publications x
+  WHERE  x.author_id = '300'
+  AND    x.title     = 'Temporal Data and the Relational Model' );
+  
+COMMIT;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'AUTHOR_PUBLICATIONS');

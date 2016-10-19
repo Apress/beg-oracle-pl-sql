@@ -1,0 +1,34 @@
+rem worker_types.ins
+rem by Donald J. Bales on 2014-10-20
+rem
+
+insert into WORKER_TYPES ( 
+       id, 
+       code, 
+       description ) 
+values ( 
+       WORKER_TYPES_ID.nextval, 
+       'C', 
+       'Contractor' );
+       
+insert into WORKER_TYPES ( 
+       id, 
+       code, 
+       description ) 
+values ( 
+       WORKER_TYPES_ID.nextval, 
+       'E', 
+       'Employee' );
+       
+insert into WORKER_TYPES ( 
+       id, 
+       code, 
+       description ) 
+values ( 
+       WORKER_TYPES_ID.nextval, 
+       'U', 
+       'Unknown' );
+
+commit;
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORKER_TYPES');

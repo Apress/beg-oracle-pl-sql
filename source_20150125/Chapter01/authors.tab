@@ -1,0 +1,6 @@
+CREATE TABLE authors (
+id                             number(38)                     not null,
+name                           varchar(100)                   not null,
+birth_date                     date,
+gender                         varchar2(30) );
+

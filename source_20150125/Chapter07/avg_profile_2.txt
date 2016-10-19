@@ -1,0 +1,35 @@
+
+UNIT_NAME   AVG_PCT OCCUR LINE# TEXT
+----------- ------- ----- ----- ------------------------------------------
+<anonymous>   53.21     1     4
+DEBUG         45.39    22    92 insert into DEBUGS
+DEBUG          0.36    22    97 commit;
+<anonymous>    0.31     2     1
+<anonymous>    0.16    18     1
+<anonymous>    0.12     1    11
+<anonymous>    0.10    10     7
+DEBUG          0.07   132    49 self.unique_session_id := SYS.DBMS_SESSION
+<anonymous>    0.04     2     1
+<anonymous>    0.03    10     8
+DEBUG          0.02   132    46 pl('debug(two params)');
+<anonymous>    0.02    10     6
+DEBUG          0.02   132    50 self.insert_user       := USER;
+PL             0.02   133    11 SYS.DBMS_OUTPUT.put_line(aiv_text);
+DEBUG          0.02   132    53 return;
+DEBUG          0.02    22    90 v_text := substrb(aiv_program_unit||': '||
+DEBUG          0.02    22    89 begin
+DEBUG          0.01    22    81 STATIC PROCEDURE set_text(
+DEBUG          0.01    22    98 end set_text;
+DEBUG          0.01   132    39 CONSTRUCTOR FUNCTION debug(
+DEBUG          0.01   132    51 self.insert_date       := SYSDATE;
+<anonymous>    0.01     1    10
+DEBUG          0.01   132    54 end debug;
+DEBUG          0.00   132    47 self.id                := ain_id;
+<anonymous>    0.00     1    11
+<anonymous>    0.00     1    12
+PL             0.00   133    12 end pl;
+<anonymous>    0.00    11     5
+DEBUG          0.00   132    48 self.text              := aiv_text;
+
+29 rows selected.
+

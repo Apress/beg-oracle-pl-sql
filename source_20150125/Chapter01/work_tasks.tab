@@ -1,0 +1,46 @@
+rem work_tasks.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold the tasks associated with a work definition
+
+-- drop table WORK_TASKS;
+create table WORK_TASKS (
+id                             number(38)                     not null,
+work_id                        number(38)                     not null,
+task_id                        number(38)                     not null,
+hazard_level_type_id           number(38)                     not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+-- drop sequence WORK_TASKS_ID;
+create sequence WORK_TASKS_ID
+start with 1;
+
+alter  table WORK_TASKS add
+constraint   WORK_TASKS_PK
+primary key ( id )
+using index;
+
+alter  table WORK_TASKS add
+constraint   WORK_TASKS_UK
+unique ( 
+work_id,
+task_id,
+active_date )
+using index;
+
+alter  table WORK_TASKS add
+constraint   WORK_TASKS_FK1
+foreign key   ( work_id )
+references   WORKS ( id );
+
+alter  table WORK_TASKS add
+constraint   WORK_TASKS_FK2
+foreign key   ( task_id )
+references   TASKS ( id );
+
+alter  table WORK_TASKS add
+constraint   WORK_TASKS_FK3
+foreign key   ( hazard_level_type_id )
+references   HAZARD_LEVEL_TYPES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORK_TASKS');

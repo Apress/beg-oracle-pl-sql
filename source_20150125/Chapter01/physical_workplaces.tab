@@ -1,0 +1,40 @@
+rem physical_workplaces.tab
+rem by Donald J. Bales on 2014-10-20
+rem Create a table to hold physical workplaces
+
+--drop   table PHYSICAL_WORKPLACES;
+create table PHYSICAL_WORKPLACES (
+id                             number(38)                     not null,
+workplace_type_id              number(38)                     not null,
+id_context                     varchar2(100)                  not null,
+parent_id                      number(38),
+code                           varchar2(30)                   not null,
+name                           varchar2(80)                   not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null);
+
+--drop   sequence PHYSICAL_WORKPLACES_ID;
+create sequence PHYSICAL_WORKPLACES_ID
+start with 1;
+
+alter  table PHYSICAL_WORKPLACES add
+constraint   PHYSICAL_WORKPLACES_PK
+primary key ( id )
+using index;
+
+alter  table PHYSICAL_WORKPLACES add
+constraint   PHYSICAL_WORKPLACES_UK
+unique ( id_context )
+using index;
+
+alter  table PHYSICAL_WORKPLACES add
+constraint   PHYSICAL_WORKPLACES_FK1
+foreign key               ( parent_id )
+references   PHYSICAL_WORKPLACES ( id );
+
+alter  table PHYSICAL_WORKPLACES add
+constraint   PHYSICAL_WORKPLACES_FK2
+foreign key   ( workplace_type_id )
+references   WORKPLACE_TYPES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'PHYSICAL_WORKPLACES');

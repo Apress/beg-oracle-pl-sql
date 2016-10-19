@@ -1,0 +1,39 @@
+rem logical_assignments.tab
+rem by Donald J. Bales on 2014-10-20
+rem 
+
+--drop   table LOGICAL_ASSIGNMENTS;
+create table LOGICAL_ASSIGNMENTS (
+id                             number(38)                     not null,
+worker_id                      number(38)                     not null,
+logical_workplace_id           number(38)                     not null,
+active_date                    date     default SYSDATE       not null,
+inactive_date                  date     default '31-DEC-9999' not null );
+
+--drop   sequence LOGICAL_ASSIGNMENTS_ID;
+create sequence LOGICAL_ASSIGNMENTS_ID
+start with 1;
+
+alter  table LOGICAL_ASSIGNMENTS add
+constraint   LOGICAL_ASSIGNMENTS_PK
+primary key ( id )
+using index;
+
+alter  table LOGICAL_ASSIGNMENTS add
+constraint   LOGICAL_ASSIGNMENTS_UK
+unique ( 
+worker_id,
+active_date )
+using index;
+
+alter  table LOGICAL_ASSIGNMENTS add
+constraint   LOGICAL_ASSIGNMENTS_FK1
+foreign key   ( worker_id )
+references   WORKERS ( id );
+
+alter  table LOGICAL_ASSIGNMENTS add
+constraint   LOGICAL_ASSIGNMENTS_FK2
+foreign key   ( logical_workplace_id )
+references   LOGICAL_WORKPLACES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'LOGICAL_ASSIGNMENTS');

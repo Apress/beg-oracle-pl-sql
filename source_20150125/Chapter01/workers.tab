@@ -1,0 +1,55 @@
+rem workers.tab
+rem by Donald J. Bales on 2014-10-20
+rem 
+
+--drop   table WORKERS;
+create table WORKERS (
+id                             number(38)                     not null,
+worker_type_id                 number(38)                     not null,
+external_id                    varchar2(30)                   not null,
+first_name                     varchar2(30)                   not null,
+middle_name                    varchar2(30),
+last_name                      varchar2(30)                   not null,
+name                           varchar2(100)                  not null,
+birth_date                     date                           not null,
+gender_type_id                 number                         not null );
+
+--drop   sequence WORKERS_ID;
+create sequence WORKERS_ID
+start with 1;
+
+--drop   sequence EXTERNAL_ID_SEQ;
+create sequence EXTERNAL_ID_SEQ
+start with 100000000 order;
+
+alter  table WORKERS add
+constraint   WORKERS_PK
+primary key ( id )
+using index;
+
+alter  table WORKERS add
+constraint   WORKERS_UK1
+unique ( external_id )
+using index;
+
+alter  table WORKERS add
+constraint   WORKERS_UK2
+unique (
+name,
+birth_date,
+gender_type_id )
+using index;
+
+alter  table WORKERS add
+constraint   WORKERS_FK1
+foreign key   ( worker_type_id )
+references   WORKER_TYPES ( id );
+
+alter  table WORKERS add
+constraint   WORKERS_FK2
+foreign key   ( gender_type_id )
+references   GENDER_TYPES ( id );
+
+execute SYS.DBMS_STATS.gather_table_stats(USER, 'WORKERS');
+
+grant all on WORKERS to public;

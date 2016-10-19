@@ -1,0 +1,6875 @@
+SQL> create user rps identified by rps;
+
+User created.
+
+SQL> alter  user rps default tablespace users temporary tablespace temp;
+
+User altered.
+
+SQL> grant all privileges to rps;
+
+Grant succeeded.
+
+SQL> grant execute on SYS.DBMS_LOCK to rps;
+
+Grant succeeded.
+
+SQL> create user ops identified by ops;
+
+User created.
+
+SQL> alter  user ops default tablespace users temporary tablespace temp;
+
+User altered.
+
+SQL> grant all privileges to ops;
+
+Grant succeeded.
+
+SQL> grant execute on SYS.DBMS_LOCK to ops;
+
+Grant succeeded.
+
+SQL> grant select on DBA_2PC_NEIGHBORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_2PC_PENDING to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ACL_NAME_MAP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADDM_FDG_BREAKDOWN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADDM_FINDINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADDM_INSTANCES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADDM_SYSTEM_DIRECTIVES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADDM_TASKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADDM_TASK_DIRECTIVES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_ACTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_COMMANDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_DEFINITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_DEF_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_DIR_DEFINITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_DIR_INSTANCES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_DIR_TASK_INST to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_EXECUTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_EXECUTION_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_EXEC_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_FDG_BREAKDOWN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_FINDINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_FINDING_NAMES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_JOURNAL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_OBJECT_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_PARAMETERS_PROJ to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_RATIONALE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_RECOMMENDATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLA_COLVOL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLA_REC_SUM to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLA_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLA_TABVOL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLA_WK_MAP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLA_WK_STMTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLA_WK_SUM to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLPLANS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLSTATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_COLVOL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_JOURNAL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_STMTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_SUM to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_TABVOL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_SQLW_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_TASKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ADVISOR_USAGE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ALERT_ARGUMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ALERT_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ALERT_HISTORY_DETAIL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ALL_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ANALYZE_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLICATION_ROLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_CHANGE_HANDLERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_CONFLICT_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_DML_CONF_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_DML_CONF_HANDLERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_DML_HANDLERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_ENQUEUE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_ERROR to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_ERROR_MESSAGES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_EXECUTE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_HANDLE_COLLISIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_INSTANTIATED_GLOBAL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_INSTANTIATED_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_INSTANTIATED_SCHEMAS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_KEY_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_PROGRESS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_REPERROR_HANDLERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_SPILL_TXN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_APPLY_TABLE_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AQ_AGENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AQ_AGENT_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ARGUMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ASSEMBLIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ASSOCIATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ATTRIBUTE_TRANSFORMATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_EXISTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_MGMT_CLEANUP_JOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_MGMT_CLEAN_EVENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_MGMT_CONFIG_PARAMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_MGMT_LAST_ARCH_TS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_OBJECT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_POLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_POLICY_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_SESSION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_STATEMENT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUDIT_TRAIL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_CLIENT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_CLIENT_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_CLIENT_JOB to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_JOB_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_OPERATION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_SCHEDULE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_STATUS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_TASK to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_WINDOW_CLIENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTOTASK_WINDOW_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTO_SEGADV_CTL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AUTO_SEGADV_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AW_OBJ to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AW_PROP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_AW_PS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_BASE_TABLE_MVIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_BLOCKERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CAPTURE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CAPTURE_EXTRA_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CAPTURE_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CAPTURE_PREPARED_DATABASE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CAPTURE_PREPARED_SCHEMAS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CAPTURE_PREPARED_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CATALOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CDB_RSRC_PLANS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CDB_RSRC_PLAN_DIRECTIVES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CHANGE_NOTIFICATION_REGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CLUSTERING_DIMENSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CLUSTERING_JOINS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CLUSTERING_KEYS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CLUSTERING_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CLUSTERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CLUSTER_HASH_EXPRESSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CLU_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CODE_ROLE_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COLL_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COL_COMMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COL_PENDING_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COL_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COMMON_AUDIT_TRAIL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COMPARISON to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COMPARISON_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COMPARISON_ROW_DIF to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COMPARISON_SCAN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COMPARISON_SCAN_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_COMPARISON_SCAN_VALUES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CONNECT_ROLE_GRANTEES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CONSTRAINTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CONS_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CONS_OBJ_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CONTAINER_DATA to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CONTEXT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CPOOL_INFO to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CPU_USAGE_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CQ_NOTIFICATION_QUERIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CREDENTIALS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_ATTR_MAPPINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_ATTR_UNIQUE_KEYS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_ATTR_VISIBILITY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_BUILD_PROCESSES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_CALCULATED_MEMBERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_CLASSIFICATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DEPENDENCIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DESCRIPTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIMENSIONALITY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIMENSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIMNL_MAPPINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIM_LEVELS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIM_MAPPINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIM_MODELS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIM_VIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_DIM_VIEW_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_HIERARCHIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_HIER_LEVELS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_HIER_VIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_HIER_VIEW_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_MAPPINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_MEASURES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_MEAS_MAPPINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_NAMED_BUILD_SPECS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_SUB_PARTITION_LEVELS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_VIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_CUBE_VIEW_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DATAPUMP_JOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DATAPUMP_SESSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DATA_FILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DBFS_HS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DBFS_HS_COMMANDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DBFS_HS_FIXED_PROPERTIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DBFS_HS_PROPERTIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DB_LINKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DDL_LOCKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DEPENDENCIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIGEST_VERIFIERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIMENSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIM_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIM_CHILD_OF to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIM_HIERARCHIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIM_JOIN_KEY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIM_LEVELS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIM_LEVEL_KEY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DIRECTORIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DISCOVERY_SOURCE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DML_LOCKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DMT_FREE_SPACE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DMT_USED_EXTENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_DV_STATUS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EDITIONED_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EDITIONING_VIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EDITIONING_VIEWS_AE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EDITIONING_VIEW_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EDITIONING_VIEW_COLS_AE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EDITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EDITION_COMMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ENABLED_AGGREGATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ENABLED_TRACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ENCRYPTED_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EPG_DAD_AUTHORIZATION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ERRORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ERRORS_AE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ERROR_TRANSLATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EVALUATION_CONTEXTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EVALUATION_CONTEXT_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EVALUATION_CONTEXT_VARS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXPORT_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXPORT_PATHS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXP_FILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXP_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXP_VERSION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXTENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXTERNAL_LOCATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_EXTERNAL_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FEATURE_USAGE_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FGA_AUDIT_TRAIL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FILE_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FILE_GROUP_EXPORT_INFO to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FILE_GROUP_FILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FILE_GROUP_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FILE_GROUP_TABLESPACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FILE_GROUP_VERSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FLASHBACK_ARCHIVE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FLASHBACK_ARCHIVE_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FLASHBACK_ARCHIVE_TS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FLASHBACK_TXN_REPORT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FLASHBACK_TXN_STATE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE_COALESCED to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE_COALESCED_TMP1 to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE_COALESCED_TMP2 to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE_COALESCED_TMP3 to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE_COALESCED_TMP4 to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE_COALESCED_TMP5 to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_FREE_SPACE_COALESCED_TMP6 to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_GG_INBOUND_PROGRESS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_GLOBAL_CONTEXT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_GOLDENGATE_INBOUND to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_GOLDENGATE_PRIVILEGES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_GOLDENGATE_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_GOLDENGATE_SUPPORT_MODE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HEATMAP_TOP_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HEATMAP_TOP_TABLESPACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HEAT_MAP_SEGMENT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HEAT_MAP_SEG_HISTOGRAM to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIGH_WATER_MARK_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_ACTIVE_SESS_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_APPLY_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_ASH_SNAPSHOT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_ASM_BAD_DISK to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_ASM_DISKGROUP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_ASM_DISKGROUP_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BASELINE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BASELINE_DETAILS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BASELINE_METADATA to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BASELINE_TEMPLATE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BG_EVENT_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BUFFERED_QUEUES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BUFFERED_SUBSCRIBERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_BUFFER_POOL_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CAPTURE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_CONFIG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_CONFIG_DETAIL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_DB to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_DISKTYPE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_DISK_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_DISK_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_GLOBAL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_GLOBAL_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_IOREASON to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_IOREASON_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_METRIC_DESC to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CELL_OPEN_ALERTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CLUSTER_INTERCON to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_COLORED_SQL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_COMP_IOSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CR_BLOCK_SERVER to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_CURRENT_BLOCK_SERVER to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_DATABASE_INSTANCE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_DATAFILE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_DB_CACHE_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_DISPATCHER to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_DLM_MISC to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_DYN_REMASTER_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_ENQUEUE_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_EVENT_HISTOGRAM to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_EVENT_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_FILEMETRIC_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_FILESTATXS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IC_CLIENT_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IC_DEVICE_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IM_SEG_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IM_SEG_STAT_OBJ to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_INSTANCE_RECOVERY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_INST_CACHE_TRANSFER to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_INTERCONNECT_PINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IOSTAT_DETAIL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IOSTAT_FILETYPE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IOSTAT_FILETYPE_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IOSTAT_FUNCTION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_IOSTAT_FUNCTION_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_JAVA_POOL_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_LATCH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_LATCH_CHILDREN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_LATCH_MISSES_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_LATCH_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_LATCH_PARENT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_LIBRARYCACHE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_MEMORY_RESIZE_OPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_MEMORY_TARGET_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_MEM_DYNAMIC_COMP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_METRIC_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_MTTR_TARGET_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_MUTEX_SLEEP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_MVPARAMETER to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_OPTIMIZER_ENV to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_OSSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_OSSTAT_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PARAMETER to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PARAMETER_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PDB_INSTANCE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PDB_IN_SNAP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PERSISTENT_QMN_CACHE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PERSISTENT_QUEUES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PERSISTENT_SUBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PGASTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PGA_TARGET_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PLAN_OPERATION_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PLAN_OPTION_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_PROCESS_MEM_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_REPLICATION_TBL_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_REPLICATION_TXN_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_REPORTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_REPORTS_CONTROL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_REPORTS_DETAILS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_REPORTS_TIMEBANDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_RESOURCE_LIMIT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_ROWCACHE_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_RSRC_CONSUMER_GROUP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_RSRC_PLAN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_RULE_SET to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SEG_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SEG_STAT_OBJ to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SERVICE_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SERVICE_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SERVICE_WAIT_CLASS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SESSMETRIC_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SESS_SGA_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SESS_TIME_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SGA to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SGASTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SGA_TARGET_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SHARED_POOL_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SHARED_SERVER_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SNAPSHOT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SNAP_ERROR to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQLBIND to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQLCOMMAND_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQLSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQLTEXT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQL_BIND_METADATA to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQL_PLAN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQL_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SQL_WORKAREA_HSTGRM to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_STAT_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_STREAMS_APPLY_SUM to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_STREAMS_CAPTURE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_STREAMS_POOL_ADVICE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SYSMETRIC_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SYSMETRIC_SUMMARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SYSSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SYSTEM_EVENT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_SYS_TIME_MODEL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_TABLESPACE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_TABLESPACE_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_TBSPC_SPACE_USAGE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_TEMPFILE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_TEMPSTATXS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_THREAD to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_TOPLEVELCALL_NAME to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_UNDOSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_WAITCLASSMET_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_WAITSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HIST_WR_CONTROL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HOST_ACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_HOST_ACLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_CONSTRAINT_EXP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_GEN_STMTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_GEN_STMTS_EXP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_OBJECTS_BASE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_OBJECTS_EXP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_POSTGEN_STMTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_PREGEN_STMTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_SITES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IAS_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IDENTIFIERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ILMDATAMOVEMENTPOLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ILMEVALUATIONDETAILS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ILMOBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ILMPARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ILMPOLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ILMRESULTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ILMTASKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_INDEXES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_INDEXTYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_INDEXTYPE_ARRAYTYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_INDEXTYPE_COMMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_INDEXTYPE_OPERATORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IND_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IND_EXPRESSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IND_PARTITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IND_PENDING_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IND_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_IND_SUBPARTITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_INTERNAL_TRIGGERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_INVALID_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_ARGUMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_CLASSES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_COMPILER_OPTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_DERIVATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_FIELDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_IMPLEMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_INNERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_LAYOUTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_METHODS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_NCOMPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_POLICY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_RESOLVERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JAVA_THROWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JOBS_RUNNING to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JOIN_IND_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_JSON_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_KEEPSIZES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_KGLLOCK to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LIBRARIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LMT_FREE_SPACE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LMT_USED_EXTENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOB_PARTITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOB_SUBPARTITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOB_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOCK to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOCK_INTERNAL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGMNR_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGMNR_PURGED_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGMNR_SESSION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_EDS_SUPPORTED to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_EDS_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_EVENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_NOT_UNIQUE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_PLSQL_MAP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_PLSQL_SUPPORT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_PROGRESS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_SKIP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_SKIP_TRANSACTION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_UNSUPPORTED to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOGSTDBY_UNSUPPORTED_TABLE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOG_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_LOG_GROUP_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MEASURE_FOLDERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MEASURE_FOLDER_CONTENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MEASURE_FOLDER_SUBFOLDERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_METADATA_PROPERTIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_METHOD_PARAMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_METHOD_RESULTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MINING_MODELS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MINING_MODEL_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MINING_MODEL_SETTINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MINING_MODEL_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_AGGREGATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_ANALYSIS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_COMMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_DETAIL_PARTITION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_DETAIL_RELATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_DETAIL_SUBPARTITION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_JOINS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_KEYS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_LOGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_LOG_FILTER_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_MVIEW_REFRESH_TIMES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_NESTED_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_NESTED_TABLE_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_NETWORK_ACLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_NETWORK_ACL_PRIVILEGES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OBJECTS_AE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OBJECT_SIZE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OBJECT_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OBJECT_USAGE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OBJ_AUDIT_OPTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OBJ_COLATTRS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OLDIMAGE_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OPANCILLARY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OPARGUMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OPBINDINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OPERATORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OPERATOR_COMMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OPTSTAT_OPERATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OPTSTAT_OPERATION_TASKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OUTLINES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OUTLINE_HINTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_OUTSTANDING_ALERTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PARALLEL_EXECUTE_CHUNKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PARALLEL_EXECUTE_TASKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PARTIAL_DROP_TABS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PART_COL_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PART_HISTOGRAMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PART_INDEXES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PART_KEY_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PART_LOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PART_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PDBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PDB_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PDB_SAVED_STATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PENDING_CONV_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PENDING_TRANSACTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PLSQL_COLL_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PLSQL_OBJECT_SETTINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PLSQL_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PLSQL_TYPE_ATTRS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_POLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_POLICY_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_POLICY_CONTEXTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_POLICY_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PRIV_AUDIT_OPTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PRIV_CAPTURES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PROCEDURES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PROFILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PROPAGATION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PROXIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_PUBLISHED_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_QUEUES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_QUEUE_PUBLISHERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_QUEUE_SCHEDULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_QUEUE_SUBSCRIBERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_QUEUE_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RCHILD to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RECOVERABLE_SCRIPT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RECOVERABLE_SCRIPT_BLOCKS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RECOVERABLE_SCRIPT_ERRORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RECOVERABLE_SCRIPT_HIST to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RECOVERABLE_SCRIPT_PARAMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RECYCLEBIN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REDEFINITION_ERRORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REDEFINITION_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REDEFINITION_STATUS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REDO_DB to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REDO_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REFRESH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REFRESH_CHILDREN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REFS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTERED_ARCHIVED_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTERED_MVIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTERED_MVIEW_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTERED_SNAPSHOTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTERED_SNAPSHOT_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_DATABASE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_DEPENDENCIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_ERROR to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_HIERARCHY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_PROGRESS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REGISTRY_SQLPATCH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPAUDIT_ATTRIBUTE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPAUDIT_COLUMN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCATLOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT_EXCEPTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT_REFRESH_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT_TEMPLATE_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT_TEMPLATE_PARMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT_TEMPLATE_SITES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT_USER_AUTHORIZATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCAT_USER_PARM_VALUES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCOLUMN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCOLUMN_GROUP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPCONFLICT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPDDL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPEXTENSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPFLAVORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPFLAVOR_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPFLAVOR_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPGENERATED to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPGENOBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPGROUP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPGROUPED_COLUMN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPGROUP_PRIVILEGES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPKEY_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPL_DBNAME_MAPPING to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPOBJECT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPPARAMETER_COLUMN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPPRIORITY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPPRIORITY_GROUP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPPROP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPRESOLUTION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPRESOLUTION_METHOD to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPRESOLUTION_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPRESOL_STATS_CONTROL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPSCHEMA to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPSITES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REPSITES_NEW to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RESOURCE_INCARNATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RESUMABLE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_REWRITE_EQUIVALENCES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RGROUP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLE_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLBACK_SEGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLING_DATABASES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLING_EVENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLING_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLING_PLAN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLING_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLING_STATUS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ROLLING_UNSUPPORTED to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_CAPABILITY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_CATEGORIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_CONSUMER_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_CONSUMER_GROUP_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_GROUP_MAPPINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_INSTANCE_CAPABILITY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_IO_CALIBRATE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_MANAGER_SYSTEM_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_MAPPING_PRIORITY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_PLANS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_PLAN_DIRECTIVES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RSRC_STORAGE_POOL_MAPPING to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RULESETS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RULE_SETS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_RULE_SET_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_CHAINS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_CHAIN_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_CHAIN_STEPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_CREDENTIALS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_DB_DESTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_DESTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_EXTERNAL_DESTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_FILE_WATCHERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_GLOBAL_ATTRIBUTE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_GROUP_MEMBERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_JOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_JOB_ARGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_JOB_CLASSES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_JOB_DESTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_JOB_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_JOB_ROLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_JOB_RUN_DETAILS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_NOTIFICATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_PROGRAMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_PROGRAM_ARGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_REMOTE_DATABASES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_REMOTE_JOBSTATE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_RUNNING_CHAINS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_RUNNING_JOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_SCHEDULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_WINDOWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_WINDOW_DETAILS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_WINDOW_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_WINDOW_LOG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SCHEDULER_WINGROUP_MEMBERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SECONDARY_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SECUREFILE_LOGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SECUREFILE_LOG_INSTANCES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SECUREFILE_LOG_PARTITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SECUREFILE_LOG_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SEC_RELEVANT_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SEGMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SEGMENTS_OLD to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SENSITIVE_COLUMN_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SENSITIVE_DATA to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SEQUENCES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SERVER_REGISTRY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SERVICES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SNAPSHOTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SNAPSHOT_LOGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SOURCE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SOURCE_AE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SOURCE_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLJ_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLJ_TYPE_ATTRS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLJ_TYPE_METHODS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLSET to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLSET_BINDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLSET_PLANS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLSET_REFERENCES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLSET_STATEMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLTUNE_BINDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLTUNE_PLANS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLTUNE_RATIONALE_PLAN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQLTUNE_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_MANAGEMENT_CONFIG to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_MONITOR_USAGE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_PATCHES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_PLAN_BASELINES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_PLAN_DIRECTIVES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_PLAN_DIR_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_PROFILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_TRANSLATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SQL_TRANSLATION_PROFILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_GRP_STATUS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_GRP_STATUS_ALL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_OBJ to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_OBJ_ALL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_OBJ_STATUS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_OBJ_STATUS_ALL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_PARTN_OPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_STLOG_EXCEPTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SR_STLOG_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SSCR_CAPTURE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SSCR_RESTORE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STAT_EXTENSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STMT_AUDIT_OPTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STORED_SETTINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_ADD_COLUMN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_ADMINISTRATOR to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_DELETE_COLUMN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_GLOBAL_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_KEEP_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_MESSAGE_CONSUMERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_MESSAGE_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_NEWLY_SUPPORTED to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_RENAME_COLUMN to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_RENAME_SCHEMA to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_RENAME_TABLE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_SCHEMA_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_SPLIT_MERGE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_SPLIT_MERGE_HIST to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_STMTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_STMT_HANDLERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TABLE_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TP_COMPONENT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TP_COMPONENT_LINK to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TP_COMPONENT_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TP_DATABASE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TP_PATH_BOTTLENECK to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TP_PATH_STAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TRANSFORMATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_TRANSFORM_FUNCTION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_STREAMS_UNSUPPORTED to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBPARTITION_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBPART_COL_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBPART_HISTOGRAMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBPART_KEY_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBSCRIBED_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBSCRIBED_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBSCRIPTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUBSCR_REGISTRATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUMMARIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUMMARY_AGGREGATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUMMARY_DETAIL_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUMMARY_JOINS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUMMARY_KEYS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SUPPLEMENTAL_LOGGING to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SYNC_CAPTURE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SYNC_CAPTURE_PREPARED_TABS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SYNC_CAPTURE_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SYNONYMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_SYS_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TABLESPACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TABLESPACE_GROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TABLESPACE_THRESHOLDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TABLESPACE_USAGE_METRICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_COLS_V$ to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_COL_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_COMMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_HISTGRM_PENDING_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_HISTOGRAMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_IDENTITY_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_MODIFICATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_PARTITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_PENDING_STATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_STATISTICS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_STATS_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_STAT_PREFS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TAB_SUBPARTITIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TEMPLATE_REFGROUPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TEMPLATE_TARGETS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TEMP_FILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TEMP_FREE_SPACE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_THRESHOLDS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TRANSFORMATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TRIGGERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TRIGGER_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TRIGGER_ORDERING to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSDP_IMPORT_ERRORS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSDP_POLICY_CONDITION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSDP_POLICY_FEATURE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSDP_POLICY_PARAMETER to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSDP_POLICY_PROTECTION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSDP_POLICY_TYPE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSM_DESTINATION to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSM_HISTORY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSM_SOURCE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSTZ_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TSTZ_TAB_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TS_QUOTAS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TUNE_MVIEW to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TYPE_ATTRS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TYPE_METHODS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_TYPE_VERSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNDO_EXTENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_COL_TABS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_OBJPRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_OBJPRIVS_PATH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_SYSPRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_SYSPRIVS_PATH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_USERPRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UNUSED_USERPRIVS_PATH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_UPDATABLE_COLUMNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_OBJPRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_OBJPRIVS_PATH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_PRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_PUBPRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_SYSPRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_SYSPRIVS_PATH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_USERPRIVS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USED_USERPRIVS_PATH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USERS_WITH_DEFPWD to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_USTATS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_VARRAYS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_VIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_VIEWS_AE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WAITERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WALLET_ACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WALLET_ACLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WARNING_SETTINGS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_CAPTURE_FILES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_JOBS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_PATTERNS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_PATTERN_ITEMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_STATEMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WI_TEMPLATE_EXECUTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_ACTIVE_USER_MAP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_CAPTURES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_CONNECTION_MAP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_FILTERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_REPLAYS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_REPLAY_DIVERGENCE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_REPLAY_FILTER_SET to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_REPLAY_SCHEDULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_SCHEDULE_CAPTURES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_SCHEDULE_ORDERING to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_WORKLOAD_USER_MAP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XDS_ACL_REFRESH to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XDS_ACL_REFSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XDS_LATEST_ACL_REFSTAT to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XMLSCHEMA_LEVEL_VIEW to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XMLSCHEMA_LEVEL_VIEW_DUP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XMLTYPE_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_INDEXES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_NESTED_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_OUT_OF_LINE_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMAS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_COMPLEX_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_DEPENDENCY to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_ELEMENTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_IMPORTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_INCLUDES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_NAMESPACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_SIMPLE_TYPES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_SUBSTGRP_HEAD to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_SCHEMA_SUBSTGRP_MBRS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_TABLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_TAB_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_VIEWS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XML_VIEW_COLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_ADMINISTRATOR to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_INBOUND to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_INBOUND_PROGRESS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_OUTBOUND to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_OUTBOUND_PROGRESS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_OUT_SUPPORT_MODE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_RULES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_SPLIT_MERGE to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_SPLIT_MERGE_HIST to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_STMTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_STMT_HANDLERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XSTREAM_TRANSFORMATIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_ACES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_ACLS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_ACL_PARAMETERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_ACTIVE_SESSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_APPLIED_POLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_AUDIT_POLICY_OPTIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_AUDIT_TRAIL to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_COLUMN_CONSTRAINTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_DYNAMIC_ROLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_ENB_AUDIT_POLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_EXTERNAL_PRINCIPALS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_IMPLIED_PRIVILEGES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_INHERITED_REALMS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_MODIFIED_POLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_NS_TEMPLATES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_NS_TEMPLATE_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_OBJECTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_POLICIES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_PRINCIPALS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_PRIVILEGES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_PROXY_ROLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_REALM_CONSTRAINTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_ROLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_ROLE_GRANTS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_SECURITY_CLASSES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_SECURITY_CLASS_DEP to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_SESSIONS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_SESSION_NS_ATTRIBUTES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_SESSION_ROLES to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_XS_USERS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ZONEMAPS to rps;
+
+Grant succeeded.
+
+SQL> grant select on DBA_ZONEMAP_MEASURES to rps;
+
+Grant succeeded.
+
+SQL> select 'grant select on '||view_name||' to ops;'
+  2  *
+  3  ERROR at line 5:
+  4  ORA-00933: SQL command not properly ended
+  5  
+SQL> 
+SQL> grant select on V_$ACCESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ACTIVE_INSTANCES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ACTIVE_SERVICES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ACTIVE_SESSION_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ACTIVE_SESS_POOL_MTH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ADVISOR_CURRENT_SQLPLAN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ADVISOR_PROGRESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ALERT_TYPES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ1 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_BACKGROUND_COORDINATOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_BMAP_NONDUR_SUBSCRIBERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_CROSS_INSTANCE_JOBS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_JOB_COORDINATOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_MESSAGE_CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_MSGBM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_NONDUR_REGISTRATIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_NONDUR_SUBSCRIBER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_NONDUR_SUBSCRIBER_LWM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_NOTIFICATION_CLIENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_SERVER_POOL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AQ_SUBSCRIBER_LOAD to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ARCHIVE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ARCHIVED_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ARCHIVE_DEST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ARCHIVE_DEST_STATUS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ARCHIVE_GAP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ARCHIVE_PROCESSES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASH_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFSREPL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFSREPLTAG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFSSNAPSHOTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFSTAG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFSVOLUMES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_ENCRYPTION_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SECURITY_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_ADMIN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_CMDRULE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_REALM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_REALM_FILTER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_REALM_GROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_REALM_USER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_RULE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_RULESET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ACFS_SEC_RULESET_RULE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ALIAS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ATTRIBUTE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_AUDIT_CLEANUP_JOBS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_AUDIT_CLEAN_EVENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_AUDIT_CONFIG_PARAMS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_AUDIT_LAST_ARCH_TS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_CLIENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISKGROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISKGROUP_SPARSE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISKGROUP_STAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISK_IOSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISK_IOSTAT_SPARSE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISK_SPARSE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISK_SPARSE_STAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_DISK_STAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_ESTIMATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_FILESYSTEM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_OPERATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_TEMPLATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_USER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_USERGROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_USERGROUP_MEMBER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_VOLUME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ASM_VOLUME_STAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AW_AGGREGATE_OP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AW_ALLOCATE_OP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AW_CALC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AW_LONGOPS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AW_OLAP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$AW_SESSION_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_ARCHIVELOG_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_ARCHIVELOG_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_ASYNC_IO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_CONTROLFILE_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_CONTROLFILE_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_COPY_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_COPY_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_CORRUPTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_DATAFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_DATAFILE_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_DATAFILE_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_DEVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_FILES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_NONLOGGED to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_PIECE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_PIECE_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_REDOLOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_SET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_SET_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_SET_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_SPFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_SPFILE_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_SPFILE_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BACKUP_SYNC_IO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BGPROCESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BLOCKING_QUIESCE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BLOCK_CHANGE_TRACKING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BSP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BTS_STAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BT_SCAN_CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BT_SCAN_OBJ_TEMPS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BUFFERED_PUBLISHERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BUFFERED_QUEUES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BUFFERED_SUBSCRIBERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BUFFER_POOL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$BUFFER_POOL_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CACHE_LOCK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CACHE_TRANSFER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CALLTAG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_CONFIG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_CONFIG_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_DB to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_DB_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_DISK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_DISK_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_GLOBAL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_GLOBAL_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_IOREASON to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_IOREASON_NAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_METRIC_DESC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_OFL_THREAD_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_OPEN_ALERTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_REQUEST_TOTALS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_STATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CELL_THREAD_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CHANNEL_WAITS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CIRCUIT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CLASS_CACHE_TRANSFER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CLASS_PING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CLIENT_SECRETS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CLIENT_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CLONEDFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CLUSTER_INTERCONNECTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CONFIGURED_INTERCONNECTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CONTAINERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CONTEXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CONTROLFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CONTROLFILE_RECORD_SECTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CON_SYSSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CON_SYSTEM_EVENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CON_SYSTEM_WAIT_CLASS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CON_SYS_TIME_MODEL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$COPY_CORRUPTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$COPY_NONLOGGED to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CORRUPT_XID_LIST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CPOOL_CC_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CPOOL_CC_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CPOOL_CONN_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CPOOL_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CR_BLOCK_SERVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$CURRENT_BLOCK_SERVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATABASE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATABASE_BLOCK_CORRUPTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATABASE_INCARNATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATABASE_KEY_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAFILE_COPY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAFILE_HEADER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAGUARD_CONFIG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAGUARD_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAGUARD_STATUS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAPUMP_JOB to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DATAPUMP_SESSION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DBFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DBLINK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DB_CACHE_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DB_OBJECT_CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DB_PIPES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DB_TRANSPORTABLE_PLATFORM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DEAD_CLEANUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DELETED_OBJECT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DETACHED_SESSION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DG_BROKER_CONFIG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_ADR_CONTROL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_ADR_INVALIDATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_ALERT_EXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_AMS_XACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_CRITICAL_ERROR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DDE_USER_ACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DDE_USER_ACTION_DEF to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DDE_USR_ACT_PARAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DDE_USR_ACT_PARAM_DEF to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DDE_USR_INC_ACT_MAP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DDE_USR_INC_TYPE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DFW_CONFIG_CAPTURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DFW_CONFIG_ITEM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DFW_PATCH_CAPTURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DFW_PATCH_ITEM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DIAGV_INCIDENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_DIR_EXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_EM_DIAG_JOB to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_EM_TARGET_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_EM_USER_ACTIVITY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_HM_FDG_SET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_HM_FINDING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_HM_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_HM_MESSAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_HM_RECOMMENDATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_HM_RUN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INCCKEY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INCIDENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INCIDENT_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INC_METER_CONFIG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INC_METER_IMPT_DEF to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INC_METER_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INC_METER_PK_IMPTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INC_METER_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_CONFIGURATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_FILE_COPY_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_FILE_METADATA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_PACKAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_PACKAGE_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_PACKAGE_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_PACKAGE_INCIDENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_PKG_UNPACK_HIST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_PROGRESS_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_IPS_REMOTE_PACKAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_LOG_EXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_PICKLEERR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_PROBLEM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_RELMD_EXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_SWEEPERR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VEM_USER_ACTLOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VEM_USER_ACTLOG1 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VHM_RUN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIEW to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIEWCOL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VINCIDENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VINCIDENT_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VINC_METER_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_FILE_COPY_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_FILE_METADATA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PACKAGE_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PACKAGE_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PACKAGE_MAIN_INT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PACKAGE_SIZE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PKG_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PKG_INC_CAND to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PKG_INC_DTL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PKG_INC_DTL1 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VIPS_PKG_MAIN_PROBLEM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VNOT_EXIST_INCIDENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM1 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM2 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM_BUCKET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM_BUCKET1 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM_BUCKET_COUNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM_INT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VPROBLEM_LASTINC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VSHOWCATVIEW to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VSHOWINCB to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VSHOWINCB_I to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_VTEST_EXISTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_ACTINC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_ACTPROB to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_INCCOUNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_INCFCOUNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_INC_METER_INFO_PROB to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_IPSPRBCNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_IPSPRBCNT1 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_NFCINC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DIAG_V_SWPERRCOUNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DISK_RESTORE_RANGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DISPATCHER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DISPATCHER_CONFIG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DISPATCHER_RATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_ALL_LOCKS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_CONVERT_LOCAL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_CONVERT_REMOTE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_LATCH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_LOCKS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_MISC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_RESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DLM_TRAFFIC_CONTROLLER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DNFS_CHANNELS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DNFS_FILES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DNFS_SERVERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DNFS_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$DYNAMIC_REMASTER_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EDITIONABLE_TYPES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EMON to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EMX_USAGE_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ENABLEDPRIVS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ENCRYPTED_TABLESPACES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ENCRYPTION_KEYS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ENCRYPTION_WALLET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ENQUEUE_LOCK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ENQUEUE_STAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ENQUEUE_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EVENTMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EVENT_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EVENT_HISTOGRAM_MICRO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EVENT_NAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$EXECUTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FALSE_PING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FAST_START_SERVERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FAST_START_TRANSACTIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILEMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILEMETRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILESPACE_USAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILESTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILE_CACHE_TRANSFER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILE_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILE_OPTIMIZED_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FILE_PING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FIXED_TABLE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FIXED_VIEW_DEFINITION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FLASHBACK_DATABASE_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FLASHBACK_DATABASE_LOGFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FLASHBACK_DATABASE_STAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FLASHBACK_TXN_GRAPH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FLASHBACK_TXN_MODS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FLASHFILESTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FLASH_RECOVERY_AREA_USAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FOREIGN_ARCHIVED_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FS_FAILOVER_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FS_FAILOVER_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$FS_OBSERVER_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GCSHVMASTER_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GCSPFMASTER_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GC_ELEMENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GC_ELEMENTS_W_COLLISIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GES_BLOCKING_ENQUEUE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GES_DEADLOCKS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GES_DEADLOCK_SESSIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GES_ENQUEUE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GG_APPLY_COORDINATOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GG_APPLY_READER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GG_APPLY_RECEIVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GG_APPLY_SERVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GLOBALCONTEXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GLOBAL_BLOCKED_LOCKS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GLOBAL_TRANSACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GOLDENGATE_CAPABILITIES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GOLDENGATE_CAPTURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GOLDENGATE_MESSAGE_TRACKING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GOLDENGATE_TABLE_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$GOLDENGATE_TRANSACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HANG_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HANG_SESSION_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HANG_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HEAT_MAP_SEGMENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HM_CHECK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HM_CHECK_PARAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HM_FINDING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HM_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HM_RECOMMENDATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HM_RUN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HS_AGENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HS_PARAMETER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HS_SESSION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$HVMASTER_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_COLUMN_LEVEL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_COL_CU to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_HEADER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_SEGMENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_SEGMENTS_DETAIL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_SEG_EXT_MAP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_SMU_CHUNK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_SMU_HEAD to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_TBS_EXT_MAP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IM_USER_SEGMENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INCMETER_CONFIG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INCMETER_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INCMETER_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INDEXED_FIXED_COLUMN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INMEMORY_AREA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INSTANCE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INSTANCE_CACHE_TRANSFER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INSTANCE_LOG_GROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INSTANCE_PING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$INSTANCE_RECOVERY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOFUNCMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOFUNCMETRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOSTAT_CONSUMER_GROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOSTAT_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOSTAT_FUNCTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOSTAT_FUNCTION_DETAIL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOSTAT_NETWORK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IOS_CLIENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IO_CALIBRATION_STATUS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IO_OUTLIER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IR_FAILURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IR_FAILURE_SET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IR_MANUAL_CHECKLIST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$IR_REPAIR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$JAVAPOOL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$JAVA_LIBRARY_CACHE_MEMORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$JAVA_POOL_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$KCCDI to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$KCCFE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$KERNEL_IO_OUTLIER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$KEY_VECTOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$KXFTASK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LATCH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LATCHHOLDER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LATCHNAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LATCH_CHILDREN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LATCH_MISSES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LATCH_PARENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LGWRIO_OUTLIER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LIBCACHE_LOCKS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LIBRARYCACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LIBRARY_CACHE_MEMORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LICENSE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LISTENER_NETWORK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOADISTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOADPSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOBSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOCK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOCKED_OBJECT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOCKS_WITH_COLLISIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOCK_ACTIVITY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOCK_ELEMENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOCK_TYPE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGHIST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_CONTENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_DICTIONARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_DICTIONARY_LOAD to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_LATCH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_LOGFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_LOGS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_PARAMETERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_PROCESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_SESSION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGMNR_TRANSACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGSTDBY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGSTDBY_PROCESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGSTDBY_PROGRESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGSTDBY_STATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGSTDBY_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOGSTDBY_TRANSACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$LOG_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MANAGED_STANDBY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAPPED_SQL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_COMP_LIST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_ELEMENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_EXT_ELEMENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_FILE_EXTENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_FILE_IO_STACK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_LIBRARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAP_SUBELEMENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MAX_ACTIVE_SESS_TARGET_MTH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MEMORY_CURRENT_RESIZE_OPS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MEMORY_DYNAMIC_COMPONENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MEMORY_RESIZE_OPS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MEMORY_TARGET_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$METRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$METRICGROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$METRICNAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$METRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MTTR_TARGET_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MUTEX_SLEEP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MUTEX_SLEEP_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MVREFRESH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$MYSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$NFS_CLIENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$NFS_LOCKS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$NFS_OPEN_FILES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$NLS_PARAMETERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$NLS_VALID_VALUES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$NONLOGGED_BLOCK to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OBJECT_DEPENDENCY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OBJECT_DML_FREQUENCIES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OBJECT_PRIVILEGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OBSOLETE_PARAMETER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OFFLINE_RANGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OFSMOUNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OFS_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OPEN_CURSOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OPTIMIZER_PROCESSING_RATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OPTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$OSSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PARALLEL_DEGREE_LIMIT_MTH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PARAMETER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PARAMETER2 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PARAMETER_VALID_VALUES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PATCHES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PDBS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PDB_INCARNATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PERSISTENT_PUBLISHERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PERSISTENT_QMN_CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PERSISTENT_QUEUES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PERSISTENT_SUBSCRIBERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PGASTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PGA_TARGET_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PGA_TARGET_ADVICE_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$POLICY_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PQ_SESSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PQ_SLAVE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PQ_SYSSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PQ_TQSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROCESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROCESS_GROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROCESS_MEMORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROCESS_MEMORY_DETAIL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROCESS_MEMORY_DETAIL_PROG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROPAGATION_RECEIVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROPAGATION_SENDER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROXY_ARCHIVEDLOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROXY_ARCHIVELOG_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROXY_ARCHIVELOG_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROXY_COPY_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROXY_COPY_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PROXY_DATAFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PWFILE_USERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PX_BUFFER_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PX_INSTANCE_GROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PX_PROCESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PX_PROCESS_SYSSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PX_PROCESS_TRACE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PX_SESSION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$PX_SESSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$QMON_COORDINATOR_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$QMON_SERVER_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$QMON_TASKS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$QMON_TASK_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$QUEUE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$QUEUEING_MTH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RECOVERY_AREA_USAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RECOVERY_FILE_DEST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RECOVERY_FILE_STATUS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RECOVERY_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RECOVERY_PROGRESS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RECOVERY_STATUS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RECOVER_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REDO_DEST_RESP_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLAY_CONTEXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLAY_CONTEXT_LOB to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLAY_CONTEXT_SEQUENCE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLAY_CONTEXT_SYSDATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLAY_CONTEXT_SYSGUID to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLAY_CONTEXT_SYSTIMESTAMP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLPROP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REPLQUEUE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$REQDIST to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESERVED_WORDS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESOURCE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESOURCE_LIMIT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESTORE_POINT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESTORE_RANGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESULT_CACHE_DEPENDENCY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESULT_CACHE_MEMORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESULT_CACHE_OBJECTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESULT_CACHE_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RESUMABLE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RFS_THREAD to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_BACKUP_JOB_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_BACKUP_SUBJOB_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_BACKUP_TYPE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_COMPRESSION_ALGORITHM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_CONFIGURATION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_ENCRYPTION_ALGORITHMS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_OUTPUT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RMAN_STATUS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ROLLNAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ROLLSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ROWCACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ROWCACHE_PARENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$ROWCACHE_SUBORDINATE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RO_USER_ACCOUNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRCMGRMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRCMGRMETRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRC_CONSUMER_GROUP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRC_CONSUMER_GROUP_CPU_MTH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRC_CONS_GROUP_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRC_PLAN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRC_PLAN_CPU_MTH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRC_PLAN_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RSRC_SESSION_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RT_ADDM_CONTROL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RULE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RULE_SET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$RULE_SET_AGGREGATE_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SBT_RESTORE_RANGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SCHEDULER_INMEM_MDINFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SCHEDULER_INMEM_RTINFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SCHEDULER_RUNNING_JOBS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SECUREFILE_TIMER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SEGMENT_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SEGSPACE_USAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SEGSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SEGSTAT_NAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SERVICEMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SERVICEMETRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SERVICES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SERVICE_EVENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SERVICE_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SERVICE_WAIT_CLASS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SERV_MOD_ACT_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSIONS_COUNT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_BLOCKERS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_CONNECT_INFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_CURSOR_CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_EVENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_FIX_CONTROL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_LONGOPS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_OBJECT_CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_WAIT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_WAIT_CLASS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSION_WAIT_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESS_IO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SESS_TIME_MODEL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SES_OPTIMIZER_ENV to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGAINFO to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGASTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGA_CURRENT_RESIZE_OPS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGA_DYNAMIC_COMPONENTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGA_DYNAMIC_FREE_MEMORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGA_RESIZE_OPS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SGA_TARGET_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SHARED_POOL_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SHARED_POOL_RESERVED to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SHARED_SERVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SHARED_SERVER_MONITOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SORT_SEGMENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SORT_USAGE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SPPARAMETER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLAREA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLAREA_PLAN_HASH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLCOMMAND to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLFN_ARG_METADATA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLFN_METADATA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLPA_METRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLSTATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLSTATS_PLAN_HASH to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLTEXT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQLTEXT_WITH_NEWLINES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_BIND_CAPTURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_BIND_DATA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_BIND_METADATA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_CS_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_CS_SELECTIVITY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_CS_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_CURSOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_DIAG_REPOSITORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_DIAG_REPOSITORY_REASON to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_FEATURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_FEATURE_DEPENDENCY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_FEATURE_HIERARCHY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_HINT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_JOIN_FILTER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_MONITOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_MONITOR_SESSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_MONITOR_STATNAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_OPTIMIZER_ENV to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_PLAN to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_PLAN_MONITOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_PLAN_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_PLAN_STATISTICS_ALL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_REDIRECTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_REOPTIMIZATION_HINTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_SHARED_CURSOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_SHARED_MEMORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_WORKAREA to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_WORKAREA_ACTIVE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SQL_WORKAREA_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SSCR_SESSIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STANDBY_EVENT_HISTOGRAM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STANDBY_LOG to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STATISTICS_LEVEL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STATNAME to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_APPLY_COORDINATOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_APPLY_READER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_APPLY_SERVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_CAPTURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_MESSAGE_TRACKING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_POOL_ADVICE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_POOL_STATISTICS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$STREAMS_TRANSACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SUBCACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SUBSCR_REGISTRATION_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSAUX_OCCUPANTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSMETRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSMETRIC_SUMMARY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSTEM_CURSOR_CACHE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSTEM_EVENT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSTEM_FIX_CONTROL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSTEM_PARAMETER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSTEM_PARAMETER2 to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYSTEM_WAIT_CLASS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYS_OPTIMIZER_ENV to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYS_REPORT_REQUESTS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYS_REPORT_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$SYS_TIME_MODEL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TABLESPACE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMPFILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMPORARY_LOBS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMPSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMPUNDOSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMP_CACHE_TRANSFER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMP_EXTENT_MAP to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMP_EXTENT_POOL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMP_PING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TEMP_SPACE_HEADER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$THREAD to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$THRESHOLD_TYPES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TIMER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TIMEZONE_FILE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TIMEZONE_NAMES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TOPLEVELCALL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TRANSACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TRANSACTION_ENQUEUE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TRANSPORTABLE_PLATFORM to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TSDP_SUPPORTED_FEATURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TSM_SESSIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$TYPE_SIZE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$UNDOSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$UNIFIED_AUDIT_RECORD_FORMAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$UNIFIED_AUDIT_TRAIL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$UNUSABLE_BACKUPFILE_DETAILS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$VERSION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$VPD_POLICY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WAITCLASSMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WAITCLASSMETRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WAITSTAT to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WAIT_CHAINS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WALLET to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WLM_PCMETRIC to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WLM_PCMETRIC_HISTORY to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WLM_PC_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$WORKLOAD_REPLAY_THREAD to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XML_AUDIT_TRAIL to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_APPLY_COORDINATOR to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_APPLY_READER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_APPLY_RECEIVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_APPLY_SERVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_CAPTURE to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_MESSAGE_TRACKING to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_OUTBOUND_SERVER to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_TABLE_STATS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XSTREAM_TRANSACTION to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XS_SESSIONS to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XS_SESSION_NS_ATTRIBUTES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$XS_SESSION_ROLES to ops;
+
+Grant succeeded.
+
+SQL> grant select on V_$_LOCK to ops;
+
+Grant succeeded.
+
+SQL> set echo	   off;
